@@ -1,0 +1,13 @@
+<div class="order-card">
+  <div class="order-header">
+    <span class="order-id">Order #{{ order.id }}</span>
+    <span class="order-status">{{ order.status }}</span>
+    <span class="order-date">{{ order.createdAt | date }}</span>
+  </div>
+  <ul class="order-lines">
+    @for (line of order.lines; track line.id) {
+      <li>{{ line.title }} &times; {{ line.quantity }} = {{ line.unitPrice * line.quantity | currency }}</li>
+    }
+  </ul>
+  <div class="order-total">Total: {{ order.total | currency }}</div>
+</div>
