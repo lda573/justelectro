@@ -1,8 +1,1 @@
-<nav>
-  <a routerLink="/media-items">Media Items</a>
-  <a routerLink="/orders">Orders</a>
-  @if (authService.isAuthenticated) {
-    <button (click)="logout()">Logout</button>
-  }
-</nav>
 <router-outlet></router-outlet>

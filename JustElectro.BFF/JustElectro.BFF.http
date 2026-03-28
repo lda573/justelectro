@@ -1,6 +1,0 @@
-@JustElectro.BFF_HostAddress = http://localhost:5225
-
-GET {{JustElectro.BFF_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
