@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { AuthApiService } from './api/auth-api.service';
-import { LoginRequest, UserInfo } from './models/auth.model';
+import { LoginRequest, LoginResponse, UserInfo } from './models/auth.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -20,11 +20,11 @@ export class AuthService {
     return localStorage.getItem(this.tokenKey);
   }
 
-  login(request: LoginRequest): Observable<UserInfo> {
+  login(request: LoginRequest): Observable<LoginResponse> {
     return this.authApi.login(request).pipe(
       tap(response => localStorage.setItem(this.tokenKey, response.accessToken)),
       tap(() => this.loadCurrentUser())
-    ) as any;
+    );
   }
 
   loadCurrentUser(): void {

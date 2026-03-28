@@ -31,7 +31,8 @@ public class MediaItemsController : ControllerBase
     [HttpPost]
     public IActionResult Create([FromBody] CreateMediaItemRequest request)
     {
-        var newItem = new MediaItemDto(_items.Max(i => i.Id) + 1, request.Title, request.Description, request.ThumbnailUrl, request.Price);
+        var newId = _items.Count > 0 ? _items.Max(i => i.Id) + 1 : 1;
+        var newItem = new MediaItemDto(newId, request.Title, request.Description, request.ThumbnailUrl, request.Price);
         _items.Add(newItem);
         return CreatedAtAction(nameof(GetById), new { id = newItem.Id }, newItem);
     }
