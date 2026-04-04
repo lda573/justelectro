@@ -1,0 +1,223 @@
+<app-header />
+
+@if (program(); as p) {
+
+  <app-page-header
+    [title]="p.titleRo"
+    [breadcrumbs]="[
+      { label: 'acasă', route: '/' },
+      { label: 'programe finanțare', route: '/programe-finantare' },
+      { label: p.titleRo }
+    ]"
+  />
+
+  <!-- DESPRE PROGRAM — structura why-choose-us din index.html -->
+  <div class="why-choose-us">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-lg-6">
+          <div class="why-choose-content">
+            <div class="section-title">
+              <h3 class="wow fadeInUp">{{ p.aboutLabel }}</h3>
+              <h2 class="text-anime-style-3" data-cursor="-opaque">
+                {{ p.aboutTitle }}
+              </h2>
+            </div>
+            <div class="why-choose-content-body wow fadeInUp" data-wow-delay="0.25s">
+              <p>{{ p.aboutDescription }}</p>
+            </div>
+            <div class="why-choose-content-footer wow fadeInUp" data-wow-delay="0.5s">
+              <a routerLink="/contact" class="btn-default">află mai mult</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="why-choose-box">
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <div class="why-choose-image">
+                  <figure class="image-anime reveal">
+                    <img [src]="p.aboutImage" [alt]="p.aboutTitle">
+                  </figure>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                @for (point of p.aboutPoints; track point; let i = $index) {
+                  <div class="why-choose-item wow fadeInUp"
+                       [attr.data-wow-delay]="(i * 0.25) + 's'"
+                       data-cursor="-opaque">
+                    <div class="why-choose-body">
+                      <h3>{{ point }}</h3>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DESPRE PROGRAM (cont.) — structura service-strategy -->
+  <div class="service-strategy">
+    <div class="container">
+      <div class="row section-row">
+        <div class="col-lg-12">
+          <div class="section-title">
+            <h3 class="wow fadeInUp">strategie</h3>
+            <h2 class="text-anime-style-3" data-cursor="-opaque">
+              {{ p.strategyTitle }}
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="service-strategy-image">
+            <figure class="image-anime reveal">
+              <img [src]="p.strategyImage" [alt]="p.strategyTitle">
+            </figure>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="service-strategy-content">
+            <div class="service-strategy-title wow fadeInUp">
+              <h3>{{ p.strategyProcessTitle }}</h3>
+            </div>
+            <div class="service-strategy-body">
+              <p class="wow fadeInUp" data-wow-delay="0.25s">
+                {{ p.strategyDescription }}
+              </p>
+              <p class="wow fadeInUp" data-wow-delay="0.5s">
+                {{ p.strategyDescriptionExtra }}
+              </p>
+            </div>
+            <div class="service-strategy-list">
+              <ul class="wow fadeInUp" data-wow-delay="0.75s">
+                @for (point of p.strategyPoints; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DE CE SĂ NE ALEGI — structura our-project din index.html -->
+  <div class="our-project">
+    <div class="container">
+      <div class="row section-row align-items-center">
+        <div class="col-lg-5">
+          <div class="section-title">
+            <h3 class="wow fadeInUp">{{ p.whyUsLabel }}</h3>
+            <h2 class="text-anime-style-3" data-cursor="-opaque">
+              {{ p.whyUsTitle }}
+            </h2>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="section-title-content wow fadeInUp" data-wow-delay="0.25s">
+            <p>{{ p.whyUsDescription }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        @for (project of p.projects; track project.title; let i = $index) {
+          <div class="col-lg-3 col-md-6">
+            <div class="project-item wow fadeInUp"
+                 [attr.data-wow-delay]="(i * 0.25) + 's'">
+              <div class="project-image" data-cursor-text="View">
+                <figure>
+                  <img [src]="project.image" [alt]="project.title">
+                </figure>
+              </div>
+              <div class="project-content">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.category }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Banner -->
+  <app-cta-banner
+    label="contact"
+    title="Vrei să aplici pentru finanțare? Hai să vorbim!"
+    description="Experții noștri sunt pregătiți să te ajute să accesezi finanțarea disponibilă. Programează o consultație gratuită."
+    buttonText="get started"
+    buttonRoute="/contact"
+  />
+
+  <!-- CALITATE — structura company-benefits din project-single.html -->
+  <div class="company-benefits">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-6">
+          <div class="company-benefits-content">
+            <div class="company-benefits-title">
+              <h2 class="text-anime-style-3" data-cursor="-opaque">
+                {{ p.qualityTitle }}
+              </h2>
+            </div>
+            <div class="company-benefits-body">
+              <p class="wow fadeInUp">{{ p.qualityDescription }}</p>
+              <p class="wow fadeInUp" data-wow-delay="0.25s">
+                {{ p.qualityDescriptionExtra }}
+              </p>
+            </div>
+            <div class="company-benefits-list wow fadeInUp" data-wow-delay="0.5s">
+              <ul>
+                @for (point of p.qualityPoints; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="benefits-image-counter">
+            <div class="company-benefits-img-1">
+              <figure class="image-anime reveal">
+                <img [src]="p.qualityImage1" [alt]="p.qualityTitle">
+              </figure>
+            </div>
+            <div class="company-benefits-counter">
+              <h3><span class="counter">{{ p.qualityCounter }}</span>+</h3>
+              <p>{{ p.qualityCounterLabel }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="company-benefits-img-2">
+            <figure class="image-anime reveal">
+              <img [src]="p.qualityImage2" [alt]="p.qualityTitle">
+            </figure>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+} @else {
+  <div class="container" style="padding: 100px 0; text-align: center;">
+    <h2>Program negăsit</h2>
+    <a routerLink="/programe-finantare" class="btn-default">înapoi la programe</a>
+  </div>
+}
+
+<app-footer />

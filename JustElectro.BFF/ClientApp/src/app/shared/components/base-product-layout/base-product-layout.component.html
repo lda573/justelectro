@@ -1,0 +1,14 @@
+<app-header />
+<ng-content select="[slot=page-header]" />
+<ng-content select="[slot=product-main]" />
+<ng-content select="[slot=durability]" />
+<app-cta-banner
+  label="contact"
+  title="Ești interesat de acest produs? Hai să vorbim!"
+  description="Experții noștri sunt gata să îți ofere o ofertă personalizată."
+  buttonText="get started"
+  buttonRoute="/contact"
+/>
+<ng-content select="[slot=warranties]" />
+<app-testimonials-section />
+<app-footer />

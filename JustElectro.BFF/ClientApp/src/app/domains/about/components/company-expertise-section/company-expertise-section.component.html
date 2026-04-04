@@ -1,0 +1,51 @@
+<div class="company-expertise">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="company-expertise-content">
+          <div class="section-title">
+            <h3 class="wow fadeInUp">expertise and experience</h3>
+            <h2 class="text-anime-style-3" data-cursor="-opaque">
+              Bringing expertise to every project
+            </h2>
+          </div>
+          <div class="company-expertise-body wow fadeInUp" data-wow-delay="0.25s">
+            <p>Our team of experts brings a wealth of knowledge and experience to the table,
+            making us the go-to choice for all your solar and renewable energy needs. With a
+            focus on staying ahead of the curve, our team members are constantly striving to
+            expand their expertise and stay up-to-date with the latest advancements in the industry.</p>
+          </div>
+          <div class="company-expertise-list wow fadeInUp" data-wow-delay="0.5s">
+            <div class="row">
+              @for (skill of skills; track skill) {
+                <div class="col-lg-6 col-md-6">
+                  <div class="expertise-item">
+                    <i class="fa-solid fa-check"></i> {{ skill }}
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="company-expertise-image">
+          <figure class="image-anime reveal">
+            <img src="assets/images/about-img-3.jpg" alt="Company expertise">
+          </figure>
+        </div>
+        <div class="satisfied-client">
+          <div class="satisfied-counter-box">
+            <div class="satisfied-client-icon">
+              <img src="assets/images/icon-satisfied-client.svg" alt="">
+            </div>
+            <div class="satisfied-client-content">
+              <h3><span class="counter">50000</span>+</h3>
+              <p>satisfied client</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

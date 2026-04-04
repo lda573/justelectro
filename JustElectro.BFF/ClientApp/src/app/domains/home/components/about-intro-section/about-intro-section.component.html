@@ -1,0 +1,80 @@
+<div class="about-us">
+  <div class="container">
+
+    <!-- Section Header Row -->
+    <div class="row section-row align-items-center">
+      <div class="col-lg-5">
+        <div class="section-title">
+          <h3 class="wow fadeInUp">about us</h3>
+          <h2 class="text-anime-style-3" data-cursor="-opaque">
+            We are the best of renewable energy
+          </h2>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="section-title-content wow fadeInUp" data-wow-delay="0.25s">
+          <p>At Mentary, we believe in the power of renewable energy to create a more
+          sustainable future. With a passion for clean energy and a commitment to our
+          customers, we are dedicated to delivering the best possible solutions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row align-items-center">
+
+      <!-- Left: text + bullets + CTA -->
+      <div class="col-lg-4">
+        <div class="about-content">
+          <div class="about-content-title wow fadeInUp">
+            <p>We're committed to revolutionizing the way you think about energy.
+            Say goodbye to skyrocketing utility bills and hello to a brighter,
+            greener future with our state-of-the-art solar energy solutions.</p>
+            <p>Your premier source for sustainable energy solutions. Explore our
+            range of solar products and services designed to meet your energy needs.</p>
+          </div>
+
+          <div class="about-content-body">
+            <ul class="wow fadeInUp" data-wow-delay="0.25s">
+              @for (point of bulletPoints; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="about-content-footer wow fadeInUp" data-wow-delay="0.5s">
+            <a routerLink="/about" class="btn-default">learn more</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center: image -->
+      <div class="col-lg-4">
+        <div class="about-image">
+          <figure class="image-anime reveal">
+            <img src="assets/images/about-us-img.jpg" alt="About us">
+          </figure>
+        </div>
+      </div>
+
+      <!-- Right: feature list -->
+      <div class="col-lg-4">
+        <div class="about-us-list">
+          @for (feature of companyFeatures; track feature.title; let i = $index) {
+            <div class="about-company-item wow fadeInUp"
+                 [attr.data-wow-delay]="(i * 0.25) + 's'">
+              <div class="icon-box">
+                <img [src]="feature.icon" [alt]="feature.title">
+              </div>
+              <div class="about-company-content">
+                <h3>{{ feature.title }}</h3>
+                <p>{{ feature.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

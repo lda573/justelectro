@@ -1,0 +1,50 @@
+<div class="company-quality">
+  <div class="container">
+    <div class="row">
+
+      <!-- Images grid (2x2) -->
+      <div class="col-lg-6">
+        <div class="company-quality-img">
+          <div class="row">
+            @for (img of images; track img) {
+              <div class="col-6">
+                <figure class="image-anime reveal">
+                  <img [src]="img" alt="Solar panel quality">
+                </figure>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="col-lg-6">
+        <div class="company-quality-content">
+          <div class="company-quality-title">
+            <h2 class="text-anime-style-3" data-cursor="-opaque">Durability</h2>
+          </div>
+          <div class="company-quality-body">
+            <p class="wow fadeInUp">
+              Solar panels are made of tempered glass, so they're built to
+              withstand hail and other rough weather.
+            </p>
+            <p class="wow fadeInUp" data-wow-delay="0.25s">
+              Any issues with solar panel performance are usually related to
+              electricity production, which is why most installers recommend
+              monitoring your system's production. By doing so, you can identify
+              and address issues proactively.
+            </p>
+          </div>
+          <div class="company-quality-list wow fadeInUp" data-wow-delay="0.5s">
+            <ul>
+              @for (point of bulletPoints; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

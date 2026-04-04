@@ -1,0 +1,50 @@
+<div class="meet-team">
+  <div class="container">
+    <div class="row section-row align-items-center">
+      <div class="col-lg-5">
+        <div class="section-title">
+          <h3 class="wow fadeInUp">meet people</h3>
+          <h2 class="text-anime-style-3" data-cursor="-opaque">
+            Meet the experts behind the energy revolution
+          </h2>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="section-title-content wow fadeInUp" data-wow-delay="0.25s">
+          <p>JustElectro a fost fondată de profesioniști cu experiență vastă în domeniul energiei regenerabile. Expertiza și viziunea lor oferă companiei un avantaj competitiv clar pe piața din România.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      @for (member of members; track member.name + member.image; let i = $index) {
+        <div class="col-lg-3 col-md-6">
+          <div class="team-member-item wow fadeInUp"
+               [attr.data-wow-delay]="(i * 0.25) + 's'">
+            <div class="team-image">
+              <figure>
+                <img [src]="member.image" [alt]="member.name">
+              </figure>
+            </div>
+            <div class="team-body">
+              <div class="team-content">
+                <h3>{{ member.name }}</h3>
+                <p>{{ member.role }}</p>
+              </div>
+              <div class="team-social-icon">
+                <ul>
+                  @for (social of member.socials; track social.icon) {
+                    <li>
+                      <a [href]="social.url" class="social-icon">
+                        <i [class]="social.icon"></i>
+                      </a>
+                    </li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

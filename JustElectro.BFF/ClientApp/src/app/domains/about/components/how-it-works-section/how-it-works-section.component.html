@@ -1,0 +1,37 @@
+<div class="how-it-work">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="section-title">
+          <h3 class="wow fadeInUp">how it work</h3>
+          <h2 class="text-anime-style-3" data-cursor="-opaque">
+            Making it easy a simple guide to our process
+          </h2>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="faq-accordion how-work-accordion" id="howItWorksAccordion">
+          @for (step of steps; track step.id; let i = $index) {
+            <div class="accordion-item wow fadeInUp"
+                 [attr.data-wow-delay]="(i * 0.25) + 's'">
+              <h2 class="accordion-header">
+                <button class="accordion-button"
+                        [class.collapsed]="activeStep() !== step.id"
+                        type="button"
+                        (click)="onToggleStep(step.id)">
+                  <span>{{ step.number }}</span>{{ step.title }}
+                </button>
+              </h2>
+              <div class="accordion-collapse collapse"
+                   [class.show]="activeStep() === step.id">
+                <div class="accordion-body">
+                  <p>{{ step.description }}</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

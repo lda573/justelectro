@@ -1,0 +1,57 @@
+<div class="our-testimonial">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="row section-row align-items-center">
+      <div class="col-lg-5">
+        <div class="section-title">
+          <h3 class="wow fadeInUp">testimonials</h3>
+          <h2 class="text-anime-style-3" data-cursor="-opaque">
+            Our customers give love feedback
+          </h2>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="section-title-content wow fadeInUp" data-wow-delay="0.25s">
+          <p>At Mentary, we believe in the power of renewable energy to create a more
+          sustainable future. With a passion for clean energy and a commitment to our
+          customers, we are dedicated to delivering the best possible solutions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Swiper Slider -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="testimonial-slider">
+          <div class="swiper">
+            <div class="swiper-wrapper" data-cursor-text="Drag">
+              @for (item of testimonials; track item.name) {
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <div class="testimonial-header">
+                      <div class="author-image">
+                        <figure class="image-anime">
+                          <img [src]="item.image" [alt]="item.name">
+                        </figure>
+                      </div>
+                      <div class="author-content">
+                        <h2>{{ item.name }}</h2>
+                        <p>{{ item.role }}</p>
+                      </div>
+                    </div>
+                    <div class="testimonial-body">
+                      <p>{{ item.text }}</p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

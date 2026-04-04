@@ -1,0 +1,87 @@
+<app-header />
+
+@if (proiect(); as p) {
+
+  <app-page-header
+    [title]="p.titleRo"
+    [breadcrumbs]="[
+      { label: 'acasă', route: '/' },
+      { label: 'portofoliu', route: '/portofoliu' },
+      { label: p.titleRo }
+    ]"
+  />
+
+  <!-- DETALIU PROIECT -->
+  <div class="project-single">
+    <div class="container">
+      <div class="row">
+
+        <!-- Imagine principală -->
+        <div class="col-lg-8">
+          <div class="project-single-image">
+            <figure class="image-anime reveal">
+              <img [src]="p.image" [alt]="p.titleRo">
+            </figure>
+          </div>
+          <div class="project-single-content wow fadeInUp" data-wow-delay="0.25s">
+            <h2>{{ p.titleRo }}</h2>
+            <p>
+              Acest proiect demonstrează expertiza noastră în implementarea soluțiilor
+              de energie regenerabilă. Fiecare detaliu a fost atent planificat și executat
+              pentru a asigura performanță maximă și durabilitate pe termen lung.
+            </p>
+            <p>
+              Lucrând îndeaproape cu clientul, am dezvoltat o soluție personalizată care
+              răspunde exact nevoilor sale energetice, respectând în același timp bugetul
+              și termenele stabilite.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sidebar info proiect -->
+        <div class="col-lg-4">
+          <div class="project-single-sidebar wow fadeInUp" data-wow-delay="0.5s">
+            <div class="project-info">
+              <h3>Informații Proiect</h3>
+              <ul>
+                <li>
+                  <span>Categorie:</span>
+                  <strong>{{ p.categorie }}</strong>
+                </li>
+                <li>
+                  <span>Data:</span>
+                  <strong>{{ p.date }}</strong>
+                </li>
+                <li>
+                  <span>Realizat de:</span>
+                  <strong>{{ p.autor }}</strong>
+                </li>
+              </ul>
+            </div>
+            <div class="project-sidebar-cta">
+              <a routerLink="/contact" class="btn-default">solicită ofertă</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Banner -->
+  <app-cta-banner
+    label="contact"
+    title="Vrei un proiect similar? Hai să vorbim!"
+    description="Experții noștri sunt pregătiți să te ajute să implementezi soluția potrivită pentru nevoile tale energetice."
+    buttonText="get started"
+    buttonRoute="/contact"
+  />
+
+} @else {
+  <div class="container" style="padding: 100px 0; text-align: center;">
+    <h2>Proiect negăsit</h2>
+    <a routerLink="/portofoliu" class="btn-default">înapoi la portofoliu</a>
+  </div>
+}
+
+<app-footer />

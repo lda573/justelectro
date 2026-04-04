@@ -1,0 +1,54 @@
+<div class="our-project">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="row section-row align-items-center">
+      <div class="col-lg-5">
+        <div class="section-title">
+          <h3 class="wow fadeInUp">our projects</h3>
+          <h2 class="text-anime-style-3" data-cursor="-opaque">
+            Explore our latest solar projects
+          </h2>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="section-title-content wow fadeInUp" data-wow-delay="0.25s">
+          <p>At Mentary, we believe in the power of renewable energy to create a more
+          sustainable future. With a passion for clean energy and a commitment to our
+          customers, we are dedicated to delivering the best possible solutions.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Full-width grid -->
+  <div class="container-fluid">
+    <div class="row">
+      @for (project of projects; track project.title; let i = $index) {
+        <div class="col-lg-3 col-md-6">
+          <div class="project-item wow fadeInUp"
+               [attr.data-wow-delay]="(i * 0.25) + 's'">
+            <div class="project-image" data-cursor-text="View">
+              <a [routerLink]="project.route">
+                <figure>
+                  <img [src]="project.image" [alt]="project.title">
+                </figure>
+              </a>
+            </div>
+            <div class="project-content">
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.category }}</p>
+              <div class="project-readmore-btn">
+                <a [routerLink]="project.route" class="btn-default btn-highlighted">
+                  read more
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+</div>
