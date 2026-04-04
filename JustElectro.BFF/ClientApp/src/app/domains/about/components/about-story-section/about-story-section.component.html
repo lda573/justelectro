@@ -1,0 +1,73 @@
+<div class="page-about-us">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Images col -->
+      <div class="col-lg-7">
+        <div class="about-us-image">
+          <div class="about-img-1">
+            <figure class="image-anime reveal">
+              <img src="assets/images/about-img-1.jpg" alt="About us">
+            </figure>
+          </div>
+          <div class="about-img-2">
+            <figure class="image-anime reveal">
+              <img src="assets/images/about-img-2.jpg" alt="About us">
+            </figure>
+          </div>
+          <div class="experience-counter-item wow fadeInUp">
+            <div class="experience-counter-content">
+              <h3><span class="counter">15</span>+</h3>
+              <p>years of experience</p>
+            </div>
+          </div>
+          <div class="client-counter-item">
+            <div class="client-counter-content">
+              <h3><span class="counter">10</span>k+ satisfied client</h3>
+              <img src="assets/images/satisfied-client-img.png" alt="Satisfied clients">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story col -->
+      <div class="col-lg-5">
+        <div class="about-story-content">
+          <div class="section-title">
+            <h3 class="wow fadeInUp">our story</h3>
+            <h2 class="text-anime-style-3" data-cursor="-opaque">
+              Let's build something strong together
+            </h2>
+          </div>
+          <div class="about-story-body wow fadeInUp" data-wow-delay="0.25s">
+            <p>JustElectro este cel mai orientat spre calitate brand de energie regenerabilă din România. Compania
+            produce și instalează module fotovoltaice și sisteme eoliene de înaltă performanță.</p>
+          </div>
+          <div class="about-company-quality">
+            @for (item of qualityItems; track item.title) {
+              <div class="company-quality-item wow fadeInUp" data-wow-delay="0.5s">
+                <div class="icon-box">
+                  <img [src]="item.icon" [alt]="item.title">
+                </div>
+                <div class="company-quality-content">
+                  <h3>{{ item.title }}</h3>
+                </div>
+              </div>
+            }
+          </div>
+          <div class="about-story-footer">
+            <ul class="wow fadeInUp" data-wow-delay="0.75s">
+              @for (point of storyPoints; track point) {
+                <li>{{ point }}</li>
+              }
+            </ul>
+            <div class="about-story-btn wow fadeInUp" data-wow-delay="1s">
+              <a routerLink="/contact" class="btn-default">send message</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

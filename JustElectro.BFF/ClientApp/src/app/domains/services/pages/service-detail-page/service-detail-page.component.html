@@ -1,0 +1,250 @@
+<app-header />
+
+@if (service(); as s) {
+
+  <app-page-header
+    [title]="s.title"
+    [breadcrumbs]="[
+      { label: 'home', route: '/' },
+      { label: 'services', route: '/services' },
+      { label: s.title }
+    ]"
+  />
+
+  <!-- Main: Sidebar + Content -->
+  <div class="page-service-single">
+    <div class="container">
+      <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <div class="service-sidebar">
+            <div class="service-catagery-list wow fadeInUp">
+              <h3>our service</h3>
+              <ul>
+                @for (item of allServices; track item.slug) {
+                  <li>
+                    <a [routerLink]="['/services', item.slug]"
+                       routerLinkActive="active">
+                      {{ item.title }}
+                      <i class="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-lg-8">
+          <div class="service-single-content">
+            <div class="service-featured-image">
+              <figure class="image-anime reveal">
+                <img [src]="s.image" [alt]="s.title">
+              </figure>
+            </div>
+            <div class="service-entry">
+              @if (s.fullDescription) {
+                <p class="wow fadeInUp">{{ s.fullDescription }}</p>
+              }
+              @if (s.fullDescriptionExtra) {
+                <p class="wow fadeInUp" data-wow-delay="0.25s">{{ s.fullDescriptionExtra }}</p>
+              }
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Choose Us -->
+  @if (s.whyChooseDescription) {
+    <div class="service-why-choose">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5">
+            <div class="service-why-choose-content">
+              <div class="section-title">
+                <h3 class="wow fadeInUp">why choose us</h3>
+                <h2 class="text-anime-style-3" data-cursor="-opaque">Why choose us</h2>
+              </div>
+              <div class="service-why-choose-body wow fadeInUp" data-wow-delay="0.25s">
+                <p>{{ s.whyChooseDescription }}</p>
+              </div>
+              @if (s.whyChoosePoints?.length) {
+                <div class="service-why-choose-list">
+                  <ul class="wow fadeInUp" data-wow-delay="0.5s">
+                    @for (point of s.whyChoosePoints; track point) {
+                      <li>{{ point }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+              <div class="service-why-choose-footer wow fadeInUp" data-wow-delay="0.75s">
+                <a routerLink="/contact" class="btn-default">learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="why-choose-video-box" data-cursor-text="Play">
+              <div class="service-why-choose-image">
+                <a [href]="s.whyChooseVideoUrl" class="popup-video">
+                  <figure class="image-anime">
+                    <img [src]="s.whyChooseVideoImage" [alt]="s.title">
+                  </figure>
+                </a>
+              </div>
+              <div class="video-button">
+                <a [href]="s.whyChooseVideoUrl" class="popup-video">
+                  <i class="fa-solid fa-play"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Benefits -->
+  @if (s.benefits?.length) {
+    <div class="service-benefits">
+      <div class="container">
+        <div class="row section-row">
+          <div class="col-lg-12">
+            <div class="section-title">
+              <h3 class="wow fadeInUp">benefits</h3>
+              <h2 class="text-anime-style-3" data-cursor="-opaque">
+                Benefits of customised solutions
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          @for (benefit of s.benefits; track benefit.title; let i = $index) {
+            <div class="col-lg-3 col-md-6">
+              <div class="service-benefit-item wow fadeInUp"
+                   [attr.data-wow-delay]="(i * 0.2) + 's'"
+                   data-cursor="-opaque">
+                <div class="icon-box">
+                  <img [src]="benefit.icon" [alt]="benefit.title">
+                </div>
+                <div class="service-benefit-content">
+                  <h3>{{ benefit.title }}</h3>
+                  <p>{{ benefit.description }}</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- CTA Banner -->
+  <app-cta-banner />
+
+  <!-- Strategy -->
+  @if (s.strategyTitle) {
+    <div class="service-strategy">
+      <div class="container">
+        <div class="row section-row">
+          <div class="col-lg-12">
+            <div class="section-title">
+              <h3 class="wow fadeInUp">strategy</h3>
+              <h2 class="text-anime-style-3" data-cursor="-opaque">Planning & Strategy</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="service-strategy-image">
+              <figure class="image-anime reveal">
+                <img [src]="s.strategyImage" [alt]="s.strategyTitle">
+              </figure>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="service-strategy-content">
+              <div class="service-strategy-title wow fadeInUp">
+                <h3>{{ s.strategyTitle }}</h3>
+              </div>
+              <div class="service-strategy-body">
+                @if (s.strategyDescription) {
+                  <p class="wow fadeInUp" data-wow-delay="0.25s">{{ s.strategyDescription }}</p>
+                }
+                @if (s.strategyDescriptionExtra) {
+                  <p class="wow fadeInUp" data-wow-delay="0.5s">{{ s.strategyDescriptionExtra }}</p>
+                }
+              </div>
+              @if (s.strategyPoints?.length) {
+                <div class="service-strategy-list">
+                  <ul class="wow fadeInUp" data-wow-delay="0.75s">
+                    @for (point of s.strategyPoints; track point) {
+                      <li>{{ point }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- FAQs -->
+  @if (s.faqs?.length) {
+    <div class="our-services-faqs">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="section-title">
+              <h3 class="wow fadeInUp">frequently asked questions</h3>
+              <h2 class="text-anime-style-3" data-cursor="-opaque">
+                Everything you need to know about our services solutions
+              </h2>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="faq-accordion" id="serviceFaqAccordion">
+              @for (faq of s.faqs; track faq.question; let i = $index) {
+                <div class="accordion-item wow fadeInUp"
+                     [attr.data-wow-delay]="(i * 0.25) + 's'">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button"
+                            [class.collapsed]="activeStep() !== i"
+                            type="button"
+                            (click)="onToggleFaq(i)">
+                      <span>{{ (i + 1).toString().padStart(2, '0') }}</span>
+                      {{ faq.question }}
+                    </button>
+                  </h2>
+                  <div class="accordion-collapse collapse"
+                       [class.show]="activeStep() === i">
+                    <div class="accordion-body">
+                      <p>{{ faq.answer }}</p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- Testimonials -->
+  <app-testimonials-section />
+
+} @else {
+  <div class="container" style="padding: 100px 0; text-align: center;">
+    <h2>Service not found</h2>
+    <a routerLink="/services" class="btn-default">back to services</a>
+  </div>
+}
+
+<app-footer />

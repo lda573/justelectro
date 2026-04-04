@@ -1,0 +1,58 @@
+<div class="latest-news">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div class="row section-row align-items-center">
+      <div class="col-lg-5">
+        <div class="section-title">
+          <h3 class="wow fadeInUp">latest post</h3>
+          <h2 class="text-anime-style-3" data-cursor="-opaque">
+            Read our latest solar insights
+          </h2>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="section-btn wow fadeInUp" data-wow-delay="0.25s">
+          <a routerLink="/blog" class="btn-default">view more</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Posts Grid -->
+    <div class="row">
+      @for (post of posts; track post.route; let i = $index) {
+        <div class="col-lg-4 col-md-6">
+          <div class="blog-item wow fadeInUp"
+               [attr.data-wow-delay]="(i * 0.25) + 's'">
+            <div class="post-featured-image" data-cursor-text="View">
+              <figure>
+                <a [routerLink]="post.route" class="image-anime">
+                  <img [src]="post.image" [alt]="post.title">
+                </a>
+              </figure>
+            </div>
+            <div class="post-item-content">
+              <div class="post-item-meta">
+                <ul>
+                  <li>
+                    <a href="#"><i class="fa-regular fa-user"></i> {{ post.author }}</a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa-regular fa-clock"></i> {{ post.date }}</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="post-item-body">
+                <h2><a [routerLink]="post.route">{{ post.title }}</a></h2>
+              </div>
+              <div class="post-item-footer">
+                <a [routerLink]="post.route">read more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</div>

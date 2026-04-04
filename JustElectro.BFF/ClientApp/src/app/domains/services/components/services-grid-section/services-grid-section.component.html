@@ -1,0 +1,24 @@
+<div class="page-service">
+  <div class="container">
+    <div class="row">
+      @for (service of services; track service.slug; let i = $index) {
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="service-item page-service-item wow fadeInUp"
+               [attr.data-wow-delay]="(i * 0.2) + 's'"
+               data-cursor="-opaque">
+            <div class="icon-box">
+              <img [src]="service.icon" [alt]="service.title">
+            </div>
+            <div class="service-body">
+              <h3>{{ service.title }}</h3>
+              <p>{{ service.shortDescription }}</p>
+            </div>
+            <div class="service-footer">
+              <a [routerLink]="['/services', service.slug]">learn more</a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

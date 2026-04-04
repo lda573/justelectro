@@ -1,0 +1,108 @@
+<!-- Topbar Start -->
+<div class="topbar">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9 col-md-8">
+        <div class="topbar-contact-info">
+          <ul>
+            <li>
+              <a href="tel:{{ phone }}">
+                <i class="fa-solid fa-phone"></i> {{ phone }}
+              </a>
+            </li>
+            <li>
+              <a href="mailto:{{ email }}">
+                <i class="fa-regular fa-envelope"></i> {{ email }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <div class="topbar-right d-flex align-items-center justify-content-end gap-3">
+
+          <!-- Language Switch -->
+          <div class="lang-switch">
+            <button
+              class="lang-btn"
+              [class.active]="langService.currentLang() === 'ro'"
+              (click)="onSwitchLang('ro')">
+              RO
+            </button>
+            <span class="lang-divider">|</span>
+            <button
+              class="lang-btn"
+              [class.active]="langService.currentLang() === 'en'"
+              (click)="onSwitchLang('en')">
+              EN
+            </button>
+          </div>
+
+          <!-- Social Links -->
+          <div class="topbar-social-links">
+            <ul>
+              @for (social of socialLinks; track social.icon) {
+                <li>
+                  <a [href]="social.url" target="_blank" rel="noopener">
+                    <i [class]="social.icon"></i>
+                  </a>
+                </li>
+              }
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Topbar End -->
+
+<!-- Header Start -->
+<header class="main-header">
+  <div class="header-sticky">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+
+        <!-- Logo Start -->
+        <a class="navbar-brand" routerLink="/">
+          <img src="assets/images/logo.svg" alt="JustElectro Logo">
+        </a>
+        <!-- Logo End -->
+
+        <!-- Main Menu Start -->
+        <div class="collapse navbar-collapse main-menu">
+          <div class="nav-menu-wrapper">
+            <ul class="navbar-nav mr-auto" id="menu">
+              @for (item of navItems; track item.route) {
+                <li class="nav-item">
+                  <a class="nav-link"
+                     [routerLink]="item.route"
+                     routerLinkActive="active"
+                     [routerLinkActiveOptions]="{ exact: item.route === '/' }">
+                    {{ getLabel(item) }}
+                  </a>
+                </li>
+              }
+            </ul>
+          </div>
+          <!-- Get a Quote Button Start -->
+          <div class="header-btn d-inline-flex">
+            <a routerLink="/contact" class="btn-default">
+              {{ langService.currentLang() === 'ro' ? 'Obține Ofertă' : 'Get a Quote' }}
+            </a>
+          </div>
+          <!-- Get a Quote Button End -->
+        </div>
+        <!-- Main Menu End -->
+
+        <!-- SlickNav populează automat acest div cu hamburger-ul -->
+        <div class="navbar-toggle"></div>
+
+      </div>
+    </nav>
+    <!-- SlickNav injectează meniul mobil aici -->
+    <div class="responsive-menu"></div>
+  </div>
+</header>
+<!-- Header End -->

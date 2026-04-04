@@ -28,13 +28,33 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
-              }
+                "input": "src/assets",
+                "output": "assets"
+              },
+              "src/favicon.ico"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-3.7.1.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/validator.min.js",
+              "src/assets/js/jquery.slicknav.js",
+              "src/assets/js/swiper-bundle.min.js",
+              "src/assets/js/jquery.waypoints.min.js",
+              "src/assets/js/jquery.counterup.min.js",
+              "src/assets/js/isotope.min.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/SmoothScroll.js",
+              "src/assets/js/parallaxie.js",
+              "src/assets/js/gsap.min.js",
+              "src/assets/js/magiccursor.js",
+              "src/assets/js/SplitText.js",
+              "src/assets/js/ScrollTrigger.min.js",
+              "src/assets/js/wow.js",
+              "src/assets/js/function.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -87,8 +107,10 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
-              }
+                "input": "src/assets",
+                "output": "assets"
+              },
+              "src/favicon.ico"
             ],
             "styles": [
               "src/styles.scss"
