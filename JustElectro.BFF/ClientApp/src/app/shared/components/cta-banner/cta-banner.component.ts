@@ -9,9 +9,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './cta-banner.component.scss'
 })
 export class CtaBannerComponent {
-  @Input() label = 'contact us';
-  @Input() title = 'Ready to get started? Let\'s talk to us today';
-  @Input() description = 'Our experts are ready to help you understand how solar can work for your home. Schedule a free, no-obligation consultation to assess your energy needs and potential savings.';
-  @Input() buttonText = 'get started';
+  @Input() label = 'Contacteaza-ne';
+  @Input() title = 'Ești gata să reduci costurile la energie?';
+  @Input() description = 'Discută cu un specialist și află ce soluție ți se potrivește. Îți oferim consultanță gratuită și te ajutăm cu tot procesul de la alegere până la instalare.';
+  @Input() buttonText = 'Solicită ofertă';
   @Input() buttonRoute = '/contact';
 }

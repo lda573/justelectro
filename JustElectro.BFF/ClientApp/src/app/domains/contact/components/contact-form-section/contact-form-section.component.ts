@@ -17,19 +17,13 @@ export class ContactFormSectionComponent {
 
   offices: OfficeLocation[] = [
     {
-      city: 'San Francisco, US',
-      description: 'Our presence in this iconic city reflects our dedication to being innovation.',
-      email: 'info@domain.com',
-      address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
-      phone: '(+0) 123 465 7890',
+      city: 'Zalău, România',
+      description: 'Construim soluții energetice durabile, bazate pe inovație și eficiență.',
+      email: 'office@just-electro.ro',
+      address: 'Bulevardul Mihai Viteazul 84C , Zalau, Romania , 450066',
+      phone: '0744 576 486 ,  0771 737 189',
     },
-    {
-      city: 'London, UK',
-      description: 'Our presence in this iconic city reflects our dedication to being innovation.',
-      email: 'info@domain.com',
-      address: '2972 Westheimer Rd. Santa Ana, Illinois 85486',
-      phone: '(+0) 123 465 7890',
-    },
+
   ];
 
   contactForm: FormGroup = this.fb.group({

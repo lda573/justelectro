@@ -11,9 +11,8 @@
             </figure>
           </div>
           <div class="footer-content">
-            <p>Harness the power of the sun with our state-of-the-art solar panel
-            solutions. We are committed to providing cost-effective solar energy
-            systems for your home or business.</p>
+            <p>Valorifică energia soarelui cu soluțiile noastre moderne de panouri fotovoltaice.
+Oferim sisteme eficiente și accesibile pentru locuințe și afaceri.</p>
           </div>
           <div class="footer-social-links">
             <ul>
@@ -32,7 +31,7 @@
       <!-- Quick Links col -->
       <div class="col-lg-2 col-md-3">
         <div class="footer-quick-links">
-          <h2>useful links</h2>
+          <h2>Acces rapid</h2>
           <ul>
             @for (link of quickLinks; track link.route) {
               <li><a [routerLink]="link.route">{{ link.label }}</a></li>
@@ -48,15 +47,16 @@
           <div class="footer-contact-box">
             <div class="footer-info-box">
               <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
-              <p>(406) 555-0120</p>
+              <p>0744 576 486 ,  
+0771 737 189</p>
             </div>
             <div class="footer-info-box">
               <div class="icon-box"><i class="fa-solid fa-envelope-open-text"></i></div>
-              <p>info&#64;domain.com</p>
+              <p>office&#64;just-electro.ro</p>
             </div>
             <div class="footer-info-box">
               <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
-              <p>2972 Westheimer Rd. Santa Ana, Illinois 85486</p>
+              <p>Bulevardul Mihai Viteazul 84C , Zalau, Romania , 450066</p>
             </div>
           </div>
         </div>
@@ -65,9 +65,9 @@
       <!-- Newsletter col -->
       <div class="col-lg-3 col-md-5">
         <div class="footer-newsletter">
-          <h2>newsletter</h2>
+          <h2>Rămâi la curent</h2>
           <div class="subscribe-content">
-            <p>Be the first to get the latest from us</p>
+            <p>Primește noutăți și oferte</p>
           </div>
           <div class="footer-newsletter-form">
             <form [formGroup]="newsletterForm" (ngSubmit)="onNewsletterSubmit()">
@@ -76,7 +76,7 @@
                   type="email"
                   formControlName="email"
                   class="form-control"
-                  placeholder="Your Email">
+                  placeholder="Introduceti email-ul">
                 <button type="submit">
                   <img src="assets/images/icon-submit-btn.svg" alt="Submit">
                 </button>
@@ -93,7 +93,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="footer-copyright-text">
-            <p>Copyright &copy; {{ currentYear }} JustElectro. All Rights Reserved.</p>
+            <p>Copyright &copy; {{ currentYear }} JustElectro. Toate drepturile rezervate.</p>
           </div>
         </div>
       </div>

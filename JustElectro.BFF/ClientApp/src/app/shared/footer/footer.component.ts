@@ -13,11 +13,12 @@ export class FooterComponent {
   currentYear = new Date().getFullYear();
 
   quickLinks = [
-    { label: 'about us', route: '/about' },
-    { label: 'services', route: '/services' },
-    { label: 'projects', route: '/project' },
-    { label: 'meet the team', route: '/team' },
-    { label: 'contact us', route: '/contact' },
+    { label: 'despre noi', route: '/about' },
+    { label: 'servicii', route: '/services' },
+    { label: 'programe finanțare', route: '/programe-finantare' },
+    { label: 'portofoliu', route: '/portofoliu' },
+    { label: 'catalog', route: '/catalog' },
+    { label: 'contact', route: '/contact' },
   ];
 
   socialLinks = [

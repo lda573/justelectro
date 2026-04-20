@@ -16,9 +16,9 @@ export class FeatureHighlightSectionComponent {
   ];
 
   bulletPoints = [
-    'Warranties not cover on damage panels',
-    'Warranties cover on panel output low',
-    'The ability to turnaround consulting',
-    'It was popularised in the 1960s with the.',
+    'Rezistență ridicată la condiții meteo extreme',
+    'Durată de viață de peste 25 de ani',
+    'Costuri reduse de întreținere',
+    'Garanție pentru performanță și echipamente',
   ];
 }

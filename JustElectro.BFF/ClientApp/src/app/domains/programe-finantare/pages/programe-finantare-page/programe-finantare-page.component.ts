@@ -4,6 +4,7 @@ import { FooterComponent } from '../../../../shared/footer/footer.component';
 import { PageHeaderComponent } from '../../../../shared/components/page-header/page-header.component';
 import { CtaBannerComponent } from '../../../../shared/components/cta-banner/cta-banner.component';
 import { ProgrameFinantareListSectionComponent } from '../../components/programe-finantare-list-section/programe-finantare-list-section.component';
+import { TestimonialsSectionComponent } from '../../../../shared/components/testimonials-section/testimonials-section.component';
 
 @Component({
   selector: 'app-programe-finantare-page',
@@ -14,6 +15,7 @@ import { ProgrameFinantareListSectionComponent } from '../../components/programe
     PageHeaderComponent,
     CtaBannerComponent,
     ProgrameFinantareListSectionComponent,
+    TestimonialsSectionComponent,
   ],
   template: `
     <app-header />
@@ -29,6 +31,7 @@ import { ProgrameFinantareListSectionComponent } from '../../components/programe
       buttonText="get started"
       buttonRoute="/contact"
     />
+    <app-testimonials-section />
     <app-footer />
   `
 })

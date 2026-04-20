@@ -3,22 +3,22 @@
     <div class="row section-row align-items-center">
       <div class="col-lg-5">
         <div class="section-title">
-          <h3 class="wow fadeInUp">programe disponibile</h3>
+          <h3 class="wow fadeInUp">finanțări disponibile</h3>
           <h2 class="text-anime-style-3" data-cursor="-opaque">
-            Finanțare pentru energie solară
+            Accesează fonduri nerambursabile pentru energie verde
           </h2>
         </div>
       </div>
       <div class="col-lg-7">
         <div class="section-title-content wow fadeInUp" data-wow-delay="0.25s">
-          <p>Accesați fonduri nerambursabile pentru instalarea sistemelor fotovoltaice.
-          Echipa noastră vă ghidează prin întregul proces de finanțare.</p>
+          <p>JustElectro este instalator autorizat în programele Casa Verde și RePowerEU.
+          Te ghidăm prin fiecare pas al procesului de finanțare, de la dosar până la instalare.</p>
         </div>
       </div>
     </div>
     <div class="row">
       @for (program of programs; track program.slug; let i = $index) {
-        <div class="col-lg-6 col-md-6 col-12">
+        <div class="col-lg-4 col-md-6 col-12">
           <div class="service-item page-service-item wow fadeInUp"
                [attr.data-wow-delay]="(i * 0.2) + 's'"
                data-cursor="-opaque">
@@ -27,7 +27,7 @@
             </div>
             <div class="service-body">
               <h3>{{ program.titleRo }}</h3>
-              <p>{{ program.aboutDescription }}</p>
+              <p>{{ program.aboutDescription | slice:0:100 }}...</p>
             </div>
             <div class="service-footer">
               <a [routerLink]="['/programe-finantare', program.slug]">află mai mult</a>
@@ -38,3 +38,4 @@
     </div>
   </div>
 </div>
+

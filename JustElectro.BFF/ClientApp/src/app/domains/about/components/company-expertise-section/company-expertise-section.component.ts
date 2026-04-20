@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 })
 export class CompanyExpertiseSectionComponent {
   skills = [
-    'Solar Panel Installation', 'Energy Solution',
-    'Energy Efficiency', 'Project Management',
-    'Electrical Engineering', 'Energy Consultancy',
+    'Instalare panouri fotovoltaice', 'Optimizarea consumului',
+    'Eficiență energetică ridicat', 'Implementare rapidă',
+    'Execuție sigură', 'Suport și consultanță',
   ];
 }

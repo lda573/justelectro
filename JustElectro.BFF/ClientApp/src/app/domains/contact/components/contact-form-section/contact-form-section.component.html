@@ -41,18 +41,18 @@
       <div class="col-lg-8">
         <div class="contact-us-form">
           <div class="section-title">
-            <h3 class="wow fadeInUp">contact us</h3>
+            <h3 class="wow fadeInUp">contactează-ne</h3>
             <h2 class="text-anime-style-3" data-cursor="-opaque">
-              How can we help you today?
+              Cu ce te putem ajuta?
             </h2>
           </div>
           <div class="contact-form-content wow fadeInUp" data-wow-delay="0.25s">
-            <p>Let us know who you are and what you're looking for below.</p>
+            <p>Completează formularul și revenim cât mai curând.</p>
           </div>
 
           @if (submitSuccess()) {
             <div class="alert alert-success wow fadeInUp">
-              Your message has been sent successfully. We'll get back to you soon!
+              Mesajul tău a fost trimis cu succes. Te vom contacta în curând!
             </div>
           }
 
@@ -63,58 +63,59 @@
             <div class="row">
 
               <div class="form-group col-md-4 mb-4">
-                <label>your name</label>
+                <label>nume</label>
                 <input type="text"
                        formControlName="name"
                        class="form-control"
                        [class.is-invalid]="submitted() && f['name'].errors"
-                       placeholder="Enter Full Name">
+                       placeholder="Introduceți numele complet">
                 @if (submitted() && f['name'].errors) {
                   <div class="invalid-feedback">
-                    @if (f['name'].errors['required']) { Name is required. }
-                    @if (f['name'].errors['minlength']) { Minimum 2 characters. }
+                    @if (f['name'].errors['required']) { Numele este obligatoriu. }
+                    @if (f['name'].errors['minlength']) { Minimum 2 caractere. }
                   </div>
                 }
               </div>
 
               <div class="form-group col-md-4 mb-4">
-                <label>your email</label>
+                <label>email</label>
                 <input type="email"
                        formControlName="email"
                        class="form-control"
                        [class.is-invalid]="submitted() && f['email'].errors"
-                       placeholder="Enter Email">
+                       placeholder="Introduceți email-ul">
+
                 @if (submitted() && f['email'].errors) {
                   <div class="invalid-feedback">
-                    @if (f['email'].errors['required']) { Email is required. }
-                    @if (f['email'].errors['email']) { Enter a valid email. }
+                    @if (f['email'].errors['required']) { Email-ul este obligatoriu. }
+                    @if (f['email'].errors['email']) { Introduceți un email valid. }
                   </div>
                 }
               </div>
 
               <div class="form-group col-md-4 mb-4">
-                <label>phone</label>
+                <label>telefon</label>
                 <input type="text"
                        formControlName="phone"
                        class="form-control"
                        [class.is-invalid]="submitted() && f['phone'].errors"
-                       placeholder="Enter Phone Number">
+                       placeholder="Introduceți numărul de telefon">
                 @if (submitted() && f['phone'].errors) {
-                  <div class="invalid-feedback">Phone is required.</div>
+                  <div class="invalid-feedback">Telefonul este obligatoriu.</div>
                 }
               </div>
 
               <div class="form-group col-md-12 mb-4">
-                <label>message</label>
+                <label>mesaj</label>
                 <textarea formControlName="message"
                           class="form-control"
                           [class.is-invalid]="submitted() && f['message'].errors"
                           rows="7"
-                          placeholder="Type Message"></textarea>
+                          placeholder="Introduceți mesajul"></textarea>
                 @if (submitted() && f['message'].errors) {
                   <div class="invalid-feedback">
-                    @if (f['message'].errors['required']) { Message is required. }
-                    @if (f['message'].errors['minlength']) { Minimum 10 characters. }
+                    @if (f['message'].errors['required']) { Mesajul este obligatoriu. }
+                    @if (f['message'].errors['minlength']) { Minimum 10 caractere. }
                   </div>
                 }
               </div>
@@ -122,7 +123,7 @@
               <div class="col-lg-12">
                 <div class="contact-form-btn">
                   <button type="submit" class="btn-default">
-                    send message
+                    Trimite mesajul 
                     <i class="fa-solid fa-arrow-up-right"></i>
                   </button>
                 </div>

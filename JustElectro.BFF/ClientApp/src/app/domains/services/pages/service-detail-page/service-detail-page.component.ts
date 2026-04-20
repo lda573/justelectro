@@ -28,18 +28,12 @@ export class ServiceDetailPageComponent implements OnInit {
 
   service = signal<ServiceDto | undefined>(undefined);
   allServices = this.servicesData.getAll();
-  activeStep = signal<number>(0);
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const slug = params.get('slug') ?? '';
       this.service.set(this.servicesData.getBySlug(slug));
-      this.activeStep.set(0);
       window.scrollTo(0, 0);
     });
-  }
-
-  onToggleFaq(index: number): void {
-    this.activeStep.set(this.activeStep() === index ? -1 : index);
   }
 }

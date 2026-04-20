@@ -1,51 +1,43 @@
 <div class="our-services">
   <div class="container">
-
-    <!-- Section Header -->
     <div class="row section-row align-items-center">
       <div class="col-lg-5">
         <div class="section-title">
-          <h3 class="wow fadeInUp">our services</h3>
+          <h3 class="wow fadeInUp">serviciile noastre</h3>
           <h2 class="text-anime-style-3" data-cursor="-opaque">
-            Best offer for renewable energy
+            Cele mai bune soluții pentru energie
           </h2>
         </div>
       </div>
       <div class="col-lg-7">
         <div class="section-title-content wow fadeInUp" data-wow-delay="0.25s">
-          <p>At Mentary, we believe in the power of renewable energy to create a more
-          sustainable future. With a passion for clean energy and a commitment to our
-          customers, we are dedicated to delivering the best possible solutions.</p>
+          <p>Oferim soluții complete de instalații electrice și sisteme energetice,
+          cu echipe autorizate și experiență vastă în domeniu.</p>
         </div>
       </div>
     </div>
-
-    <!-- Services Grid -->
     <div class="row">
-      @for (service of services; track service.title; let i = $index) {
-        <div class="col-lg-3 col-md-6 col-12">
+      @for (service of services; track service.slug; let i = $index) {
+        <div class="col-lg-4 col-md-6 col-12">
           <div class="service-item wow fadeInUp"
-               [attr.data-wow-delay]="(i * 0.25) + 's'"
+               [attr.data-wow-delay]="(i * 0.2) + 's'"
                data-cursor="-opaque">
             <div class="icon-box">
               <img [src]="service.icon" [alt]="service.title">
             </div>
             <div class="service-body">
               <h3>{{ service.title }}</h3>
-              <p>{{ service.description }}</p>
+              <p>{{ service.shortDescription }}</p>
             </div>
             <div class="service-footer">
-              <a [routerLink]="service.route">learn more</a>
+              <a [routerLink]="['/services', service.slug]">learn more</a>
             </div>
           </div>
         </div>
       }
-
-      <!-- View All CTA -->
       <div class="service-footer-btn wow fadeInUp" data-wow-delay="0.25s">
-        <a routerLink="/services" class="btn-default">view all services</a>
+        <a routerLink="/services" class="btn-default">toate serviciile</a>
       </div>
     </div>
-
   </div>
 </div>
