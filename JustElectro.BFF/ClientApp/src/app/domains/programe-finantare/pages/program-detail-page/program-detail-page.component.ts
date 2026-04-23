@@ -4,7 +4,7 @@ import { HeaderComponent } from '../../../../shared/header/header.component';
 import { FooterComponent } from '../../../../shared/footer/footer.component';
 import { PageHeaderComponent } from '../../../../shared/components/page-header/page-header.component';
 import { CtaBannerComponent } from '../../../../shared/components/cta-banner/cta-banner.component';
-import { TestimonialsSectionComponent } from '../../../../shared/components/testimonials-section/testimonials-section.component';
+import { CertificationsSectionComponent } from '../../../../shared/components/certifications-section/certifications-section.component';
 import { ProgrameFinantareDataService } from '../../api/programe-finantare-data.service';
 import { ProgramFinantareDto } from '../../models/program-finantare.models';
 
@@ -16,7 +16,7 @@ import { ProgramFinantareDto } from '../../models/program-finantare.models';
     FooterComponent,
     PageHeaderComponent,
     CtaBannerComponent,
-    TestimonialsSectionComponent,
+    CertificationsSectionComponent,
     RouterLink,
   ],
   templateUrl: './program-detail-page.component.html',

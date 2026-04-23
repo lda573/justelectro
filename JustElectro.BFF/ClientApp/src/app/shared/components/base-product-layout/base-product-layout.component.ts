@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { HeaderComponent } from '../../header/header.component';
 import { FooterComponent } from '../../footer/footer.component';
 import { CtaBannerComponent } from '../cta-banner/cta-banner.component';
-import { TestimonialsSectionComponent } from '../testimonials-section/testimonials-section.component';
+import { CertificationsSectionComponent } from '../certifications-section/certifications-section.component';
 
 @Component({
   selector: 'app-base-product-layout',
@@ -12,7 +12,7 @@ import { TestimonialsSectionComponent } from '../testimonials-section/testimonia
     HeaderComponent,
     FooterComponent,
     CtaBannerComponent,
-    TestimonialsSectionComponent,
+    CertificationsSectionComponent,
     RouterLink,
   ],
   templateUrl: './base-product-layout.component.html',
