@@ -20,8 +20,8 @@ import { ServicesGridSectionComponent } from '../../components/services-grid-sec
   template: `
     <app-header />
     <app-page-header
-      title="Services"
-      [breadcrumbs]="[{ label: 'home', route: '/' }, { label: 'services' }]"
+      title="Servicii"
+      [breadcrumbs]="[{ label: 'acasă', route: '/' }, { label: 'servicii', route: '/servicii' }]"
     />
     <app-services-grid-section />
     <app-cta-banner />

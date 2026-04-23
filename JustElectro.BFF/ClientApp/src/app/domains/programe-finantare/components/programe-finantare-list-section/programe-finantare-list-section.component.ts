@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SlicePipe } from '@angular/common';
 import { ProgrameFinantareDataService } from '../../api/programe-finantare-data.service';
 
 @Component({
   selector: 'app-programe-finantare-list-section',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, SlicePipe],
   templateUrl: './programe-finantare-list-section.component.html',
   styleUrl: './programe-finantare-list-section.component.scss'
 })

@@ -26,8 +26,8 @@ import { TeamSectionComponent } from '../../components/team-section/team-section
   template: `
     <app-header />
     <app-page-header
-      title="About Us"
-      [breadcrumbs]="[{ label: 'home', route: '/' }, { label: 'about us' }]"
+      title="Despre noi"
+      [breadcrumbs]="[{ label: 'acasă', route: '/' }, { label: 'despre noi', route: '/despre-noi' }]"
     />
     <app-about-story-section />
     <app-company-counter />

@@ -16,32 +16,32 @@ interface CompanyFeature {
 })
 export class AboutIntroSectionComponent {
   bulletPoints = [
-    'Expertise and Experience',
-    'Free Consultation and Site Assessment',
-    'High-Quality Solar Products',
-    'Comprehensive End-to-End Services',
+    'Sisteme fotovoltaice',
+    'Pompe de căldură',
+    'Instalații electrice',
+    'Stații de încărcare pentru vehicule electrice',
   ];
 
   companyFeatures: CompanyFeature[] = [
     {
       icon: 'assets/images/icon-about-us-1.svg',
-      title: 'peak shaving',
-      description: 'We understand that every home and business is unique.',
+      title: 'Soluții complete',
+      description: 'Ne ocupăm de tot — de la consultanță și proiectare până la instalare și mentenanță.',
     },
     {
       icon: 'assets/images/icon-about-us-2.svg',
-      title: 'demand response',
-      description: 'We understand that every home and business is unique.',
+      title: 'Rapiditate și fiabilitate',
+      description: 'Implementăm proiectele la timp, fără compromisuri la calitate.',
     },
     {
       icon: 'assets/images/icon-about-us-3.svg',
-      title: 'load shifting',
-      description: 'We understand that every home and business is unique.',
+      title: 'Eficiență energetică reală',
+      description: 'Reducem costurile tale prin soluții optimizate și tehnologii moderne.',
     },
     {
       icon: 'assets/images/icon-about-us-4.svg',
-      title: 'environmental benefits',
-      description: 'We understand that every home and business is unique.',
+      title: 'Profesionalism și transparență',
+      description: 'Lucrăm corect, comunicăm clar și livrăm exact ce promitem.',
     },
   ];
 }

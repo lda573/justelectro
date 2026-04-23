@@ -18,8 +18,8 @@ interface NavItem {
 export class HeaderComponent {
   langService = inject(LanguageService);
 
-  phone = '+91 004-9985-484-44';
-  email = 'info@domain.com';
+  phone = '0744 576 486 ,  0771 737 189';
+  email = 'office@just-electro.ro';
 
   socialLinks = [
     { icon: 'fa-brands fa-facebook-f', url: '#' },

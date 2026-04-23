@@ -16,8 +16,8 @@ import { ContactFormSectionComponent } from '../../components/contact-form-secti
   template: `
     <app-header />
     <app-page-header
-      title="Contact Us"
-      [breadcrumbs]="[{ label: 'home', route: '/' }, { label: 'contact us' }]"
+      title="Contact"
+      [breadcrumbs]="[{ label: 'acasă', route: '/' }, { label: 'contact', route: '/contact' }]"
     />
     <app-contact-form-section />
     <app-footer />

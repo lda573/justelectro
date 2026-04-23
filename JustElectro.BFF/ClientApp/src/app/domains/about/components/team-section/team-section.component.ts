@@ -16,9 +16,9 @@ interface TeamMember {
 })
 export class TeamSectionComponent {
   members: TeamMember[] = [
-    { image: 'assets/images/team-1.jpg', name: 'dianne russell', role: 'CEO and founder', socials: [{ icon: 'fa-brands fa-facebook-f', url: '#' }, { icon: 'fa-brands fa-instagram', url: '#' }, { icon: 'fa-brands fa-linkedin-in', url: '#' }] },
-    { image: 'assets/images/team-2.jpg', name: 'dianne russell', role: 'CEO and founder', socials: [{ icon: 'fa-brands fa-facebook-f', url: '#' }, { icon: 'fa-brands fa-instagram', url: '#' }, { icon: 'fa-brands fa-linkedin-in', url: '#' }] },
-    { image: 'assets/images/team-3.jpg', name: 'dianne russell', role: 'CEO and founder', socials: [{ icon: 'fa-brands fa-facebook-f', url: '#' }, { icon: 'fa-brands fa-instagram', url: '#' }, { icon: 'fa-brands fa-linkedin-in', url: '#' }] },
-    { image: 'assets/images/team-4.jpg', name: 'dianne russell', role: 'CEO and founder', socials: [{ icon: 'fa-brands fa-facebook-f', url: '#' }, { icon: 'fa-brands fa-instagram', url: '#' }, { icon: 'fa-brands fa-linkedin-in', url: '#' }] },
+    { image: 'assets/images/pozeSite/jinko_solar.png', name: '', role: '', socials: [ ] },
+    { image: 'assets/images/team-2.jpg', name: '', role: '', socials: [ ] },
+    { image: 'assets/images/team-3.jpg', name: '', role: '', socials: [ ] },
+    { image: 'assets/images/team-4.jpg', name: '', role: '', socials: [ ] },
   ];
 }

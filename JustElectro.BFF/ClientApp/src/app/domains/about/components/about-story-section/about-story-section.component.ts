@@ -10,14 +10,14 @@ import { RouterLink } from '@angular/router';
 })
 export class AboutStorySectionComponent {
   qualityItems = [
-    { icon: 'assets/images/icon-company-quality-1.svg', title: 'building quality standards' },
-    { icon: 'assets/images/icon-company-quality-2.svg', title: 'certified engineered team' },
+    { icon: 'assets/images/icon-company-quality-1.svg', title: 'Standarde ridicate de calitate' },
+    { icon: 'assets/images/icon-company-quality-2.svg', title: 'Echipă calificată și experimentată' },
   ];
 
   storyPoints = [
-    'expertise and experience',
-    'quality products',
-    'customized solutions',
-    'environmental impact',
+    'Experiență în domeniu',
+    'Echipamente de calitate',
+    'Soluții personalizate',
+    'Eficiență energetică',
   ];
 }

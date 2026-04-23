@@ -18,11 +18,11 @@ export class HowItWorksSectionComponent {
   activeStep = signal('step1');
 
   steps: WorkStep[] = [
-    { id: 'step1', number: '01', title: 'Consultation', description: 'Solar Energy refers to the energy obtained from the sun through the use of photovoltaic cells or solar panels.' },
-    { id: 'step2', number: '02', title: 'Site Explore', description: 'Solar Energy refers to the energy obtained from the sun through the use of photovoltaic cells or solar panels.' },
-    { id: 'step3', number: '03', title: 'Design', description: 'Solar Energy refers to the energy obtained from the sun through the use of photovoltaic cells or solar panels.' },
-    { id: 'step4', number: '04', title: 'Consultation', description: 'Solar Energy refers to the energy obtained from the sun through the use of photovoltaic cells or solar panels.' },
-    { id: 'step5', number: '05', title: 'Monitoring', description: 'Solar Energy refers to the energy obtained from the sun through the use of photovoltaic cells or solar panels.' },
+    { id: 'step1', number: '01', title: 'Consultanță', description: 'analizăm nevoile și cerințele clientului' },
+    { id: 'step2', number: '02', title: 'Proiectare', description: 'dezvoltăm un plan detaliat pentru implementarea soluției' },
+    { id: 'step3', number: '03', title: 'Execuție', description: 'implementăm soluția conform planului stabilit' },
+    { id: 'step4', number: '04', title: 'Testare', description: 'verificăm funcționalitatea și performanța soluției' },
+    { id: 'step5', number: '05', title: 'Mentenanță', description: 'asigurăm suport și întreținere continuă' },
   ];
 
   onToggleStep(id: string): void {
