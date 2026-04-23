@@ -7,7 +7,7 @@ import { ServicesSectionComponent } from '../../components/services-section/serv
 import { ProjectsGallerySectionComponent } from '../../components/projects-gallery-section/projects-gallery-section.component';
 import { FeatureHighlightSectionComponent } from '../../components/feature-highlight-section/feature-highlight-section.component';
 import { CtaBannerComponent } from '../../../../shared/components/cta-banner/cta-banner.component';
-import { TestimonialsSectionComponent } from '../../../../shared/components/testimonials-section/testimonials-section.component';
+import { CertificationsSectionComponent } from '../../../../shared/components/certifications-section/certifications-section.component';
 
 @Component({
   selector: 'app-home-page',
@@ -21,7 +21,7 @@ import { TestimonialsSectionComponent } from '../../../../shared/components/test
     ProjectsGallerySectionComponent,
     FeatureHighlightSectionComponent,
     CtaBannerComponent,
-    TestimonialsSectionComponent,
+    CertificationsSectionComponent,
   ],
   template: `
     <app-header />
@@ -31,7 +31,7 @@ import { TestimonialsSectionComponent } from '../../../../shared/components/test
     <app-projects-gallery-section />
     <app-feature-highlight-section />
     <app-cta-banner />
-    <app-testimonials-section />
+    <app-certifications-section />
     <app-footer />
   `
 })

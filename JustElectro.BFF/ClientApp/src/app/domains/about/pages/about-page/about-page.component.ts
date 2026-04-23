@@ -8,6 +8,8 @@ import { AboutStorySectionComponent } from '../../components/about-story-section
 import { CompanyExpertiseSectionComponent } from '../../components/company-expertise-section/company-expertise-section.component';
 import { HowItWorksSectionComponent } from '../../components/how-it-works-section/how-it-works-section.component';
 import { TeamSectionComponent } from '../../components/team-section/team-section.component';
+import { CertificationsSectionComponent } from '../../../../shared/components/certifications-section/certifications-section.component';
+import { QuoteSectionComponent } from '../../../../shared/components/quote-section/quote-section.component';
 
 @Component({
   selector: 'app-about-page',
@@ -18,6 +20,8 @@ import { TeamSectionComponent } from '../../components/team-section/team-section
     PageHeaderComponent,
     CompanyCounterComponent,
     CtaBannerComponent,
+    CertificationsSectionComponent,
+    QuoteSectionComponent,
     AboutStorySectionComponent,
     CompanyExpertiseSectionComponent,
     HowItWorksSectionComponent,
@@ -34,6 +38,8 @@ import { TeamSectionComponent } from '../../components/team-section/team-section
     <app-company-expertise-section />
     <app-how-it-works-section />
     <app-cta-banner />
+    <app-certifications-section />
+    <app-quote-section />
     <app-team-section />
     <app-footer />
   `

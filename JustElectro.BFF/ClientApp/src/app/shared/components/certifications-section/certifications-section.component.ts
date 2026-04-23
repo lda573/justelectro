@@ -1,6 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 
-interface Testimonial {
+interface Certification {
   image: string;
   name: string;
   role: string;
@@ -8,14 +8,14 @@ interface Testimonial {
 }
 
 @Component({
-  selector: 'app-testimonials-section',
+  selector: 'app-certifications-section',
   standalone: true,
   imports: [],
-  templateUrl: './testimonials-section.component.html',
-  styleUrl: './testimonials-section.component.scss'
+  templateUrl: './certifications-section.component.html',
+  styleUrl: './certifications-section.component.scss'
 })
-export class TestimonialsSectionComponent implements AfterViewInit {
-  testimonials: Testimonial[] = [
+export class CertificationsSectionComponent implements AfterViewInit {
+  certifications: Certification[] = [
     {
       image: 'assets/images/author-1.jpg',
       name: 'boy williamson',
@@ -43,6 +43,6 @@ export class TestimonialsSectionComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit(): void {
-    // Swiper este inițializat global din function.js al template-ului
+    // Swiper is initialized globally from the template's function.js
   }
 }
