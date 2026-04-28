@@ -5,9 +5,22 @@ export interface SanityImage {
   alt?: string;
 }
 
+export interface LocalizedString {
+  ro: string;
+  en: string;
+}
+
+export interface LocalizedBulletPoint {
+  _key: string;
+  _type: 'localizedBulletPoint';
+  ro: string;
+  en: string;
+}
+
 export interface QualityItem {
-  icon: SanityImage;
-  title: string;
+  _key: string;
+  icon?: SanityImage;
+  title: LocalizedString;
 }
 
 export interface Certification {
@@ -26,13 +39,13 @@ export interface Partner {
 
 export interface AboutPage {
   story: {
-    heading: string;
-    body: string;
+    heading: LocalizedString;
+    body: LocalizedString;
     yearsExperience: number;
     image1: SanityImage;
     image2: SanityImage;
     qualityItems: QualityItem[];
-    bulletPoints: string[];
+    bulletPoints: LocalizedBulletPoint[];
   };
   certifications: Certification[];
   partners: Partner[];
