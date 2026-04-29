@@ -1,39 +1,40 @@
-import { SanityImage } from './about.models';
+import { SanityImage, LocalizedString, LocalizedText, LocalizedStringArray } from './about.models';
 
 export interface ServiceBenefit {
   _key: string;
   icon: SanityImage;
-  title: string;
-  description: string;
+  title: LocalizedString;
+  description: LocalizedText;
 }
 
 export interface ServiceContentBlock {
-  heading: string;
-  body1: string;
-  body2?: string;
-  points: string[];
+  heading: LocalizedString;
+  body1: LocalizedText;
+  body2?: LocalizedText;
+  points: LocalizedStringArray;
   image1: SanityImage;
   image2: SanityImage;
   counterValue: number;
-  counterLabel: string;
+  counterLabel: LocalizedString;
 }
 
 export interface ServiceFaq {
   _key: string;
-  question: string;
-  answer: string;
+  question: LocalizedString;
+  answer: LocalizedText;
 }
 
 export interface ServiceDto {
+  _id: string;
   slug: { current: string };
   order: number;
   icon: SanityImage;
   image: SanityImage;
-  title: string;
-  shortDescription: string;
-  fullDescription: string;
-  fullDescriptionExtra?: string;
-  strategyPoints: string[];
+  title: LocalizedString;
+  shortDescription: LocalizedText;
+  fullDescription: LocalizedText;
+  fullDescriptionExtra?: LocalizedText;
+  keyPoints: LocalizedStringArray;
   benefits: ServiceBenefit[];
   contentBlock: ServiceContentBlock;
   faqs: ServiceFaq[];

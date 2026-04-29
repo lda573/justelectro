@@ -3,11 +3,11 @@
 @if (service(); as s) {
 
   <app-page-header
-    [title]="s.title"
+    [title]="title()"
     [breadcrumbs]="[
       { label: 'acasă', route: '/' },
       { label: 'servicii', route: '/services' },
-      { label: s.title }
+      { label: title() }
     ]"
   />
 
@@ -22,11 +22,11 @@
             <div class="service-catagery-list wow fadeInUp">
               <h3>serviciile noastre</h3>
               <ul>
-                @for (item of allServices; track item.slug) {
+                @for (item of allServices(); track item.slug.current) {
                   <li>
-                    <a [routerLink]="['/services', item.slug]"
+                    <a [routerLink]="['/services', item.slug.current]"
                        routerLinkActive="active">
-                      {{ item.title }}
+                      {{ getSidebarTitle(item) }}
                       <i class="fa-solid fa-arrow-up-right"></i>
                     </a>
                   </li>
@@ -43,26 +43,26 @@
             <!-- Imagine principală -->
             <div class="service-featured-image">
               <figure class="image-anime reveal">
-                <img [src]="s.image" [alt]="s.title">
+                <img [src]="imageUrl()" [alt]="title()">
               </figure>
             </div>
 
             <!-- Descriere serviciu -->
             <div class="service-entry">
-              <h3 class="text-anime-style-3">{{ s.title }}</h3>
-              @if (s.fullDescription) {
-                <p class="wow fadeInUp">{{ s.fullDescription }}</p>
+              <h3 class="text-anime-style-3">{{ title() }}</h3>
+              @if (fullDescription()) {
+                <p class="wow fadeInUp">{{ fullDescription() }}</p>
               }
-              @if (s.fullDescriptionExtra) {
+              @if (fullDescriptionExtra()) {
                 <p class="wow fadeInUp" data-wow-delay="0.25s">
-                  {{ s.fullDescriptionExtra }}
+                  {{ fullDescriptionExtra() }}
                 </p>
               }
 
-              <!-- Lista de puncte cheie din strategyPoints -->
-              @if (s.strategyPoints && s.strategyPoints.length) {
+              <!-- Lista de puncte cheie -->
+              @if (keyPoints().length) {
                 <ul class="wow fadeInUp" data-wow-delay="0.5s">
-                  @for (point of s.strategyPoints; track point) {
+                  @for (point of keyPoints(); track point) {
                     <li>{{ point }}</li>
                   }
                 </ul>
@@ -83,18 +83,19 @@
             <div class="col-lg-6">
                 <div class="company-benefits-content">
                     <div class="company-benefits-title">
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Garanții</h2>
+                        <h2 class="text-anime-style-3" data-cursor="-opaque">{{ contentBlockHeading() }}</h2>
                     </div>
                     <div class="company-benefits-body">
-                        <p class="wow fadeInUp">Garanțiile de performanță garantează că producția panoului nu va scădea sub nivelul specificat pe durata garanției.</p>
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">Producția de vârf garantată la minimum 85% timp de 25 de ani.</p>
+                        <p class="wow fadeInUp">{{ contentBlockBody1() }}</p>
+                        @if (contentBlockBody2()) {
+                          <p class="wow fadeInUp" data-wow-delay="0.25s">{{ contentBlockBody2() }}</p>
+                        }
                     </div>
                     <div class="company-benefits-list wow fadeInUp" data-wow-delay="0.5s">
                         <ul>
-                            <li>Garanțiile nu acoperă deteriorările mecanice</li>
-                            <li>Garanție pe producția scăzută a panoului</li>
-                            <li>Posibilitatea de consultanță tehnică</li>
-                            <li>Certificat de conformitate inclus</li>
+                            @for (point of contentBlockPoints(); track point) {
+                              <li>{{ point }}</li>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -102,17 +103,17 @@
             <div class="col-lg-3 col-md-6">
                 <div class="benefits-image-counter">
                     <div class="company-benefits-img-1">
-                        <figure class="image-anime reveal"><img src="assets/images/company-benefit-img-1.jpg" alt=""></figure>
+                        <figure class="image-anime reveal"><img [src]="contentBlockImage1()" alt=""></figure>
                     </div>
                     <div class="company-benefits-counter">
-                        <h3><span class="counter">80</span>+</h3>
-                        <p>parteneri în toată lumea</p>
+                        <h3><span class="counter">{{ contentBlockCounterValue() }}</span>+</h3>
+                        <p>{{ contentBlockCounterLabel() }}</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <div class="company-benefits-img-2">
-                    <figure class="image-anime reveal"><img src="assets/images/company-benefit-img-2.jpg" alt=""></figure>
+                    <figure class="image-anime reveal"><img [src]="contentBlockImage2()" alt=""></figure>
                 </div>
             </div>
         </div>

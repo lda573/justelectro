@@ -162,10 +162,10 @@ export class CmsApiService {
   }
 
   getCertifications(): Observable<Certification[]> {
-    return this.cachedQuery<Certification[]>('certifications', '*[_type == "aboutPage"][0].certifications');
+    return this.cachedQuery<Certification[]>('certifications', '*[_type == "certification"] | order(order asc)');
   }
 
   getPartners(): Observable<Partner[]> {
-    return this.cachedQuery<Partner[]>('partners', '*[_type == "aboutPage"][0].partners');
+    return this.cachedQuery<Partner[]>('partners', '*[_type == "partner"] | order(order asc)');
   }
 }

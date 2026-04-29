@@ -1,24 +1,28 @@
 <div class="page-service">
+  @if (services().length) {
   <div class="container">
     <div class="row">
-      @for (service of services; track service.slug; let i = $index) {
+      @for (service of services(); track service.slug.current; let i = $index) {
         <div class="col-lg-4 col-md-6 col-12">
           <div class="service-item page-service-item wow fadeInUp"
                [attr.data-wow-delay]="(i * 0.2) + 's'"
                data-cursor="-opaque">
             <div class="icon-box">
-              <img [src]="service.icon" [alt]="service.title">
+              <img [src]="sanityImageUrl(service.icon, 80)" [alt]="getTitle(service)">
             </div>
             <div class="service-body">
-              <h3>{{ service.title }}</h3>
-              <p>{{ service.shortDescription }}</p>
+              <h3>{{ getTitle(service) }}</h3>
+              <p>{{ getShortDescription(service) }}</p>
             </div>
             <div class="service-footer">
-              <a [routerLink]="['/services', service.slug]">learn more</a>
+              <a [routerLink]="['/services', service.slug.current]">learn more</a>
             </div>
           </div>
         </div>
       }
     </div>
   </div>
+  } @else {
+    <div class="container" style="padding: 40px 0"></div>
+  }
 </div>

@@ -2496,7 +2496,6 @@ header.main-header .header-sticky.active{
     bottom: 0;
     right: 0;
     left: 0;
-	background: linear-gradient(180deg, transparent 43.92%, #0e0d1b8c 74.39%);
     border-radius: 0px;
     background-repeat: no-repeat;
     background-position: center center;
@@ -2506,7 +2505,7 @@ header.main-header .header-sticky.active{
 .team-member-item .team-image{
     position: relative;
     overflow: hidden;
-	border-radius: 0px;
+	border-radius: 20px;
 }
 
 .team-member-item .team-image img{
@@ -2536,14 +2535,14 @@ header.main-header .header-sticky.active{
 }
 
 .team-content h3{
-	color: var(--white-color);
+	color: var(--bs-gray-dark);
 	font-size: 22px;
 	text-transform: capitalize;
 	margin-bottom: 5px;
 }
 
 .team-content p{
-	color: var(--accent-color);
+	color: var(--bs-gray-500);
 	text-transform: capitalize;
 	margin: 0;
 }

@@ -10,31 +10,9 @@ export interface LocalizedString {
   en: string;
 }
 
-export interface LocalizedBulletPoint {
-  _key: string;
-  _type: 'localizedBulletPoint';
+export interface LocalizedText {
   ro: string;
   en: string;
-}
-
-export interface QualityItem {
-  _key: string;
-  icon?: SanityImage;
-  title: LocalizedString;
-}
-
-export interface Certification {
-  _key: string;
-  logo: SanityImage;
-  name: string;
-  number?: string;
-  description: string;
-}
-
-export interface Partner {
-  _key: string;
-  logo: SanityImage;
-  name?: string;
 }
 
 export interface LocalizedStringArray {
@@ -42,9 +20,45 @@ export interface LocalizedStringArray {
   en: string[];
 }
 
+export interface QualityItem {
+  _key: string;
+  icon: SanityImage;
+  title: LocalizedString;
+}
+
+export interface LocalizedBulletPoint {
+  _key: string;
+  ro: string;
+  en: string;
+}
+
+export interface Certification {
+  _id: string;
+  order: number;
+  logo: SanityImage;
+  name: LocalizedString;
+  number?: string;
+  description: LocalizedString;
+}
+
+export interface PartnerSocial {
+  _key: string;
+  icon: string;
+  url: string;
+}
+
+export interface Partner {
+  _id: string;
+  order: number;
+  logo: SanityImage;
+  name?: string;
+  role?: string;
+  socials?: PartnerSocial[];
+}
+
 export interface Expertise {
   heading: LocalizedString;
-  body: LocalizedString;
+  body: LocalizedText;
   skills: LocalizedStringArray;
   image: SanityImage;
   clientCount: number;
@@ -53,14 +67,12 @@ export interface Expertise {
 export interface AboutPage {
   story: {
     heading: LocalizedString;
-    body: LocalizedString;
+    body: LocalizedText;
     yearsExperience: number;
     image1: SanityImage;
     image2: SanityImage;
     qualityItems: QualityItem[];
     bulletPoints: LocalizedBulletPoint[];
   };
-  certifications: Certification[];
-  partners: Partner[];
   expertise: Expertise;
 }
