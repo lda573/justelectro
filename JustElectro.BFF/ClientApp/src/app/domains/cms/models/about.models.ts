@@ -37,6 +37,19 @@ export interface Partner {
   name?: string;
 }
 
+export interface LocalizedStringArray {
+  ro: string[];
+  en: string[];
+}
+
+export interface Expertise {
+  heading: LocalizedString;
+  body: LocalizedString;
+  skills: LocalizedStringArray;
+  image: SanityImage;
+  clientCount: number;
+}
+
 export interface AboutPage {
   story: {
     heading: LocalizedString;
@@ -49,4 +62,5 @@ export interface AboutPage {
   };
   certifications: Certification[];
   partners: Partner[];
+  expertise: Expertise;
 }

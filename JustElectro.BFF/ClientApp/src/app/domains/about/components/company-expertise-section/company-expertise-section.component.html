@@ -1,50 +1,53 @@
 <div class="company-expertise">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <div class="company-expertise-content">
-          <div class="section-title">
-            <h3 class="wow fadeInUp">ACREDITĂRI ȘI AUTORIZAȚII</h3>
-            <h2 class="text-anime-style-3" data-cursor="-opaque">
-              Siguranță și conformitate în fiecare proiect
-            </h2>
-          </div>
-          <div class="company-expertise-body wow fadeInUp" data-wow-delay="0.25s">
-            <p>Activitatea JustElectro se desfășoară în conformitate cu normele și reglementările în vigoare din domeniul instalațiilor electrice și al sistemelor energetice. Respectăm standardele de siguranță și calitate în toate etapele proiectului, de la execuție până la punere în funcțiune.
-
-Ne asigurăm că fiecare lucrare este realizată corect, responsabil și în deplină conformitate cu cerințele tehnice actuale.</p>
-          </div>
-          <div class="company-expertise-list wow fadeInUp" data-wow-delay="0.5s">
-            <div class="row">
-              @for (skill of skills; track skill) {
-                <div class="col-lg-6 col-md-6">
-                  <div class="expertise-item">
-                    <i class="fa-solid fa-check"></i> {{ skill }}
+  @if (aboutPage()) {
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="company-expertise-content">
+            <div class="section-title">
+              <h3 class="wow fadeInUp">ACREDITĂRI ȘI AUTORIZAȚII</h3>
+              <h2 class="text-anime-style-3" data-cursor="-opaque">
+                {{ heading() }}
+              </h2>
+            </div>
+            <div class="company-expertise-body wow fadeInUp" data-wow-delay="0.25s">
+              <p>{{ body() }}</p>
+            </div>
+            <div class="company-expertise-list wow fadeInUp" data-wow-delay="0.5s">
+              <div class="row">
+                @for (skill of skills(); track skill) {
+                  <div class="col-lg-6 col-md-6">
+                    <div class="expertise-item">
+                      <i class="fa-solid fa-check"></i> {{ skill }}
+                    </div>
                   </div>
-                </div>
-              }
+                }
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="company-expertise-image">
-          <figure class="image-anime reveal">
-            <img src="assets/images/about-img-3.jpg" alt="Company expertise">
-          </figure>
-        </div>
-        <div class="satisfied-client">
-          <div class="satisfied-counter-box">
-            <div class="satisfied-client-icon">
-              <img src="assets/images/icon-satisfied-client.svg" alt="">
-            </div>
-            <div class="satisfied-client-content">
-              <h3><span class="counter">50000</span>+</h3>
-              <p>satisfied client</p>
+        <div class="col-lg-6">
+          <div class="company-expertise-image">
+            <figure class="image-anime reveal">
+              <img src="assets/images/about-img-3.jpg" alt="Company expertise">
+              <!--<img [src]="imageUrl()" alt="Company expertise">-->
+            </figure>
+          </div>
+          <div class="satisfied-client">
+            <div class="satisfied-counter-box">
+              <div class="satisfied-client-icon">
+                <img src="assets/images/icon-satisfied-client.svg" alt="">
+              </div>
+              <div class="satisfied-client-content">
+                <h3><span class="counter">{{ clientCount() }}</span>+</h3>
+                <p>satisfied client</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  } @else {
+    <div class="container" style="padding: 80px 0"></div>
+  }
 </div>
