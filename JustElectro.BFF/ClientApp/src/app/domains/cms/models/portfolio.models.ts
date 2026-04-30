@@ -1,11 +1,12 @@
-import { SanityImage } from './about.models';
+import { SanityImage, LocalizedString, LocalizedText } from './about.models';
 
 export interface PortfolioItemDto {
+  _id: string;
   slug: { current: string };
   order: number;
   category: string;
   coverImage: SanityImage;
   gallery?: SanityImage[];
-  title: string;
-  description: string;
+  title: LocalizedString;
+  description: LocalizedText;
 }

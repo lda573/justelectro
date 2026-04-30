@@ -1,205 +1,38 @@
 <!-- Projects Page Start -->
-<div class="our-projects">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12">
-      </div>
+@if (items().length) {
+  <div class="our-projects">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12"></div>
 
-      <div class="col-lg-12">
-        <!-- Project Item Box start -->
-        <div class="row project-item-boxes">
-          <div class="col-lg-4 col-md-6 project-item-box solar power">
-            <!-- Project Item Start -->
-            <div class="project-item">
-              <div class="project-image" data-cursor-text="View">
-                <a routerLink="/portofoliu/panouri-solare-rezidentiale-cluj">
-                  <figure>
-                    <img src="assets/images/project-1.jpg" alt="">
-                  </figure>
-                </a>
-              </div>
-              <div class="project-content">
-                <h3>Panouri Solare Rezidențiale Cluj</h3>
-                <p>Solar</p>
-                <div class="project-readmore-btn">
-                  <a routerLink="/portofoliu/panouri-solare-rezidentiale-cluj" class="btn-default btn-highlighted">citește mai mult</a>
+        <div class="col-lg-12">
+          <div class="row project-item-boxes">
+            @for (item of items(); track item.slug.current; let i = $index) {
+              <div class="col-lg-4 col-md-6 project-item-box">
+                <div class="project-item">
+                  <div class="project-image" data-cursor-text="View">
+                    <a [routerLink]="['/portofoliu', item.slug.current]">
+                      <figure>
+                        <img [src]="getCoverImageUrl(item)" [alt]="getTitle(item)">
+                      </figure>
+                    </a>
+                  </div>
+                  <div class="project-content">
+                    <h3>{{ getTitle(item) }}</h3>
+                    <p>{{ item.category }}</p>
+                    <div class="project-readmore-btn">
+                      <a [routerLink]="['/portofoliu', item.slug.current]" class="btn-default btn-highlighted">citește mai mult</a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!-- Project Item End -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item-box wind power">
-            <!-- Project Item Start -->
-            <div class="project-item">
-              <div class="project-image" data-cursor-text="View">
-                <a routerLink="/portofoliu/turbine-eoliene-dobrogea">
-                  <figure>
-                    <img src="assets/images/project-2.jpg" alt="">
-                  </figure>
-                </a>
-              </div>
-              <div class="project-content">
-                <h3>Turbine Eoliene Dobrogea</h3>
-                <p>Wind</p>
-                <div class="project-readmore-btn">
-                  <a routerLink="/portofoliu/turbine-eoliene-dobrogea" class="btn-default btn-highlighted">citește mai mult</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project Item End -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item-box solar">
-            <!-- Project Item Start -->
-            <div class="project-item">
-              <div class="project-image" data-cursor-text="View">
-                <a routerLink="/portofoliu/sistem-fotovoltaic-industrial-brasov">
-                  <figure>
-                    <img src="assets/images/project-3.jpg" alt="">
-                  </figure>
-                </a>
-              </div>
-              <div class="project-content">
-                <h3>Sistem Fotovoltaic Industrial Brașov</h3>
-                <p>Solar</p>
-                <div class="project-readmore-btn">
-                  <a routerLink="/portofoliu/sistem-fotovoltaic-industrial-brasov" class="btn-default btn-highlighted">citește mai mult</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project Item End -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item-box power">
-            <!-- Project Item Start -->
-            <div class="project-item">
-              <div class="project-image" data-cursor-text="View">
-                <a routerLink="/portofoliu/microcentrale-hidro-bistrita">
-                  <figure>
-                    <img src="assets/images/project-4.jpg" alt="">
-                  </figure>
-                </a>
-              </div>
-              <div class="project-content">
-                <h3>Microcentrale Hidro Bistrița</h3>
-                <p>Power</p>
-                <div class="project-readmore-btn">
-                  <a routerLink="/portofoliu/microcentrale-hidro-bistrita" class="btn-default btn-highlighted">citește mai mult</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project Item End -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item-box hybrid">
-            <!-- Project Item Start -->
-            <div class="project-item">
-              <div class="project-image" data-cursor-text="View">
-                <a routerLink="/portofoliu/sistem-hibrid-solar-eolian-constanta">
-                  <figure>
-                    <img src="assets/images/project-5.jpg" alt="">
-                  </figure>
-                </a>
-              </div>
-              <div class="project-content">
-                <h3>Sistem Hibrid Solar-Eolian Constanța</h3>
-                <p>Hybrid</p>
-                <div class="project-readmore-btn">
-                  <a routerLink="/portofoliu/sistem-hibrid-solar-eolian-constanta" class="btn-default btn-highlighted">citește mai mult</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project Item End -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item-box solar">
-            <!-- Project Item Start -->
-            <div class="project-item">
-              <div class="project-image" data-cursor-text="View">
-                <a routerLink="/portofoliu/parc-solar-timisoara">
-                  <figure>
-                    <img src="assets/images/project-6.jpg" alt="">
-                  </figure>
-                </a>
-              </div>
-              <div class="project-content">
-                <h3>Parc Solar Timișoara</h3>
-                <p>Solar</p>
-                <div class="project-readmore-btn">
-                  <a routerLink="/portofoliu/parc-solar-timisoara" class="btn-default btn-highlighted">citește mai mult</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project Item End -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item-box wind">
-            <!-- Project Item Start -->
-            <div class="project-item">
-              <div class="project-image" data-cursor-text="View">
-                <a routerLink="/portofoliu/ferma-eoliana-tulcea">
-                  <figure>
-                    <img src="assets/images/project-7.jpg" alt="">
-                  </figure>
-                </a>
-              </div>
-              <div class="project-content">
-                <h3>Fermă Eoliană Tulcea</h3>
-                <p>Wind</p>
-                <div class="project-readmore-btn">
-                  <a routerLink="/portofoliu/ferma-eoliana-tulcea" class="btn-default btn-highlighted">citește mai mult</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project Item End -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item-box power">
-            <!-- Project Item Start -->
-            <div class="project-item">
-              <div class="project-image" data-cursor-text="View">
-                <a routerLink="/portofoliu/statie-electrica-iasi">
-                  <figure>
-                    <img src="assets/images/project-8.jpg" alt="">
-                  </figure>
-                </a>
-              </div>
-              <div class="project-content">
-                <h3>Stație Electrică Iași</h3>
-                <p>Power</p>
-                <div class="project-readmore-btn">
-                  <a routerLink="/portofoliu/statie-electrica-iasi" class="btn-default btn-highlighted">citește mai mult</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project Item End -->
-          </div>
-
-          <div class="col-lg-4 col-md-6 project-item-box hybrid">
-            <!-- Project Item Start -->
-            <div class="project-item">
-              <div class="project-image" data-cursor-text="View">
-                <a routerLink="/portofoliu/sistem-hibrid-off-grid-maramures">
-                  <figure>
-                    <img src="assets/images/project-9.jpg" alt="">
-                  </figure>
-                </a>
-              </div>
-              <div class="project-content">
-                <h3>Sistem Hibrid Off-Grid Maramureș</h3>
-                <p>Hybrid</p>
-                <div class="project-readmore-btn">
-                  <a routerLink="/portofoliu/sistem-hibrid-off-grid-maramures" class="btn-default btn-highlighted">citește mai mult</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project Item End -->
+            }
           </div>
         </div>
-        <!-- Project Item Box End -->
       </div>
     </div>
   </div>
-</div>
+} @else {
+  <div class="container" style="padding: 40px 0"></div>
+}
 <!-- Projects Page End -->
