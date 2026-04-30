@@ -3,11 +3,11 @@
 @if (program(); as p) {
 
   <app-page-header
-    [title]="p.titleRo"
+    [title]="title()"
     [breadcrumbs]="[
       { label: 'acasă', route: '/' },
       { label: 'programe finanțare', route: '/programe-finantare' },
-      { label: p.titleRo }
+      { label: title() }
     ]"
   />
 
@@ -18,11 +18,11 @@
         <div class="col-lg-6">
           <div class="why-choose-content">
             <div class="section-title">
-              <h3 class="wow fadeInUp">{{ p.aboutLabel }}</h3>
-              <h2 class="text-anime-style-3" data-cursor="-opaque">{{ p.aboutTitle }}</h2>
+              <h3 class="wow fadeInUp">{{ aboutLabel() }}</h3>
+              <h2 class="text-anime-style-3" data-cursor="-opaque">{{ aboutTitle() }}</h2>
             </div>
             <div class="why-choose-content-body wow fadeInUp" data-wow-delay="0.25s">
-              <p>{{ p.aboutDescription }}</p>
+              <p>{{ aboutDescription() }}</p>
             </div>
             <div class="why-choose-content-footer wow fadeInUp" data-wow-delay="0.5s">
               <a routerLink="/contact" class="btn-default">solicită consultanță</a>
@@ -35,12 +35,12 @@
               <div class="col-lg-6 col-md-6">
                 <div class="why-choose-image">
                   <figure class="image-anime reveal">
-                    <img [src]="p.aboutImage" [alt]="p.aboutTitle">
+                    <img [src]="aboutImageUrl()" [alt]="aboutTitle()">
                   </figure>
                 </div>
               </div>
               <div class="col-lg-6 col-md-6">
-                @for (point of p.aboutPoints; track point; let i = $index) {
+                @for (point of aboutPoints(); track point; let i = $index) {
                   <div class="why-choose-item wow fadeInUp"
                        [attr.data-wow-delay]="(i * 0.25) + 's'"
                        data-cursor="-opaque">
@@ -64,7 +64,7 @@
         <div class="col-lg-12">
           <div class="section-title">
             <h3 class="wow fadeInUp">cum funcționează</h3>
-            <h2 class="text-anime-style-3" data-cursor="-opaque">{{ p.strategyTitle }}</h2>
+            <h2 class="text-anime-style-3" data-cursor="-opaque">{{ strategyTitle() }}</h2>
           </div>
         </div>
       </div>
@@ -72,22 +72,22 @@
         <div class="col-lg-6">
           <div class="service-strategy-image">
             <figure class="image-anime reveal">
-              <img [src]="p.strategyImage" [alt]="p.strategyTitle">
+              <img [src]="strategyImageUrl()" [alt]="strategyTitle()">
             </figure>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="service-strategy-content">
             <div class="service-strategy-title wow fadeInUp">
-              <h3>{{ p.strategyProcessTitle }}</h3>
+              <h3>{{ strategyProcessTitle() }}</h3>
             </div>
             <div class="service-strategy-body">
-              <p class="wow fadeInUp" data-wow-delay="0.25s">{{ p.strategyDescription }}</p>
-              <p class="wow fadeInUp" data-wow-delay="0.5s">{{ p.strategyDescriptionExtra }}</p>
+              <p class="wow fadeInUp" data-wow-delay="0.25s">{{ strategyDescription() }}</p>
+              <p class="wow fadeInUp" data-wow-delay="0.5s">{{ strategyDescriptionExtra() }}</p>
             </div>
             <div class="service-strategy-list">
               <ul class="wow fadeInUp" data-wow-delay="0.75s">
-                @for (point of p.strategyPoints; track point) {
+                @for (point of strategyPoints(); track point) {
                   <li>{{ point }}</li>
                 }
               </ul>
@@ -104,31 +104,31 @@
       <div class="row section-row align-items-center">
         <div class="col-lg-5">
           <div class="section-title">
-            <h3 class="wow fadeInUp">{{ p.whyUsLabel }}</h3>
-            <h2 class="text-anime-style-3" data-cursor="-opaque">{{ p.whyUsTitle }}</h2>
+            <h3 class="wow fadeInUp">{{ whyUsLabel() }}</h3>
+            <h2 class="text-anime-style-3" data-cursor="-opaque">{{ whyUsTitle() }}</h2>
           </div>
         </div>
         <div class="col-lg-7">
           <div class="section-title-content wow fadeInUp" data-wow-delay="0.25s">
-            <p>{{ p.whyUsDescription }}</p>
+            <p>{{ whyUsDescription() }}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="container-fluid">
       <div class="row">
-        @for (project of p.projects; track project.title; let i = $index) {
+        @for (project of whyUsProjects(); track project._key; let i = $index) {
           <div class="col-lg-3 col-md-6">
             <div class="project-item wow fadeInUp"
                  [attr.data-wow-delay]="(i * 0.25) + 's'">
               <div class="project-image" data-cursor-text="View">
                 <figure>
-                  <img [src]="project.image" [alt]="project.title">
+                  <img [src]="getProjectImageUrl(project)" [alt]="getProjectTitle(project)">
                 </figure>
               </div>
               <div class="project-content">
-                <h3>{{ project.title }}</h3>
-                <p>{{ project.category }}</p>
+                <h3>{{ getProjectTitle(project) }}</h3>
+                <p>{{ getProjectCategory(project) }}</p>
               </div>
             </div>
           </div>
@@ -153,15 +153,15 @@
         <div class="col-lg-6">
           <div class="company-benefits-content">
             <div class="company-benefits-title">
-              <h2 class="text-anime-style-3" data-cursor="-opaque">{{ p.qualityTitle }}</h2>
+              <h2 class="text-anime-style-3" data-cursor="-opaque">{{ qualityTitle() }}</h2>
             </div>
             <div class="company-benefits-body">
-              <p class="wow fadeInUp">{{ p.qualityDescription }}</p>
-              <p class="wow fadeInUp" data-wow-delay="0.25s">{{ p.qualityDescriptionExtra }}</p>
+              <p class="wow fadeInUp">{{ qualityDescription() }}</p>
+              <p class="wow fadeInUp" data-wow-delay="0.25s">{{ qualityDescriptionExtra() }}</p>
             </div>
             <div class="company-benefits-list wow fadeInUp" data-wow-delay="0.5s">
               <ul>
-                @for (point of p.qualityPoints; track point) {
+                @for (point of qualityPoints(); track point) {
                   <li>{{ point }}</li>
                 }
               </ul>
@@ -172,19 +172,19 @@
           <div class="benefits-image-counter">
             <div class="company-benefits-img-1">
               <figure class="image-anime reveal">
-                <img [src]="p.qualityImage1" [alt]="p.qualityTitle">
+                <img [src]="qualityImage1Url()" [alt]="qualityTitle()">
               </figure>
             </div>
             <div class="company-benefits-counter">
-              <h3><span class="counter">{{ p.qualityCounter }}</span>+</h3>
-              <p>{{ p.qualityCounterLabel }}</p>
+              <h3><span class="counter">{{ qualityCounterValue() }}</span>+</h3>
+              <p>{{ qualityCounterLabel() }}</p>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6">
           <div class="company-benefits-img-2">
             <figure class="image-anime reveal">
-              <img [src]="p.qualityImage2" [alt]="p.qualityTitle">
+              <img [src]="qualityImage2Url()" [alt]="qualityTitle()">
             </figure>
           </div>
         </div>
