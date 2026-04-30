@@ -1,4 +1,4 @@
-import { SanityImage } from './about.models';
+import { SanityImage, LocalizedString, LocalizedText, LocalizedStringArray } from './about.models';
 
 export interface ProductSpec {
   _key: string;
@@ -7,24 +7,25 @@ export interface ProductSpec {
 }
 
 export interface ProductDto {
+  _id: string;
   slug: { current: string };
   order: number;
   coverImage: SanityImage;
   gallery?: SanityImage[];
   category: string;
-  title: string;
-  shortDescription: string;
+  title: LocalizedString;
+  shortDescription: LocalizedText;
   specs: ProductSpec[];
   about: {
-    description: string;
-    descriptionExtra?: string;
-    points: string[];
+    description: LocalizedText;
+    descriptionExtra?: LocalizedText;
+    points: LocalizedStringArray;
   };
   durability: {
-    title: string;
-    description: string;
-    descriptionExtra?: string;
-    points: string[];
+    title: LocalizedString;
+    description: LocalizedText;
+    descriptionExtra?: LocalizedText;
+    points: LocalizedStringArray;
     image: SanityImage;
   };
 }

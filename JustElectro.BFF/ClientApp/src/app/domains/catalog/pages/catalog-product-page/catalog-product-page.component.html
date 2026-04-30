@@ -1,121 +1,118 @@
 <app-header />
 
-<app-page-header
-  title="Detalii Produs"
-  [breadcrumbs]="[
-    { label: 'acasă', route: '/' },
-    { label: 'catalog', route: '/catalog' },
-    { label: 'detalii produs' }
-  ]"
-/>
+@if (product()) {
+  <app-page-header
+    [title]="title()"
+    [breadcrumbs]="[
+      { label: 'acasă', route: '/' },
+      { label: 'catalog', route: '/catalog' },
+      { label: title() }
+    ]"
+  />
 
-<!-- Sidebar + Slider — structura project-single.html -->
-<div class="page-project-single">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="project-sidebar">
-                    <div class="project-info-box wow fadeInUp" data-wow-delay="0.25s">
-                        <div class="project-info-box-title">
-                            <h3>informații produs</h3>
-                        </div>
-                        <div class="project-info-item">
-                            <div class="icon-box"><img src="assets/images/icon-project-info-1.svg" alt=""></div>
-                            <div class="project-info-content"><h3>putere nominală</h3><p>400W</p></div>
-                        </div>
-                        <div class="project-info-item">
-                            <div class="icon-box"><img src="assets/images/icon-project-info-2.svg" alt=""></div>
-                            <div class="project-info-content"><h3>eficiență</h3><p>21.4%</p></div>
-                        </div>
-                        <div class="project-info-item">
-                            <div class="icon-box"><img src="assets/images/icon-project-info-3.svg" alt=""></div>
-                            <div class="project-info-content"><h3>categorie</h3><p>Panouri Solare</p></div>
-                        </div>
-                        <div class="project-info-item">
-                            <div class="icon-box"><img src="assets/images/icon-project-info-4.svg" alt=""></div>
-                            <div class="project-info-content"><h3>producător</h3><p>SolarTech Pro</p></div>
-                        </div>
-                        <div class="project-info-item">
-                            <div class="icon-box"><img src="assets/images/icon-project-info-5.svg" alt=""></div>
-                            <div class="project-info-content"><h3>garanție</h3><p>25 ani performanță</p></div>
-                        </div>
-                        <div class="project-info-item">
-                            <div class="icon-box"><img src="assets/images/icon-project-info-6.svg" alt=""></div>
-                            <div class="project-info-content"><h3>certificare</h3><p>CE, TÜV, IEC</p></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="page-project-single">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-4">
+                  <div class="project-sidebar">
+                      <div class="project-info-box wow fadeInUp" data-wow-delay="0.25s">
+                          <div class="project-info-box-title">
+                              <h3>informații produs</h3>
+                          </div>
+                          @if (product()) {
+                            @for (spec of specs(); track spec._key) {
+                              <div class="project-info-item">
+                                  <div class="project-info-content">
+                                      <h3>{{ spec.label }}</h3>
+                                      <p>{{ spec.value }}</p>
+                                  </div>
+                              </div>
+                            }
+                          }
+                      </div>
+                  </div>
+              </div>
 
-            <div class="col-lg-8">
-                <div class="project-single-content">
-                    <!-- Slider — Swiper inițializat din function.js -->
-                    <div class="project-single-slider">
-                        <div class="swiper project-slider">
-                            <div class="swiper-wrapper" data-cursor-text="Drag">
-                                <div class="swiper-slide"><div class="slide-image"><img src="assets/images/project-1.jpg" alt=""></div></div>
-                                <div class="swiper-slide"><div class="slide-image"><img src="assets/images/project-2.jpg" alt=""></div></div>
-                                <div class="swiper-slide"><div class="slide-image"><img src="assets/images/project-3.jpg" alt=""></div></div>
-                            </div>
-                        </div>
-                        <div class="swiper project-slider-item">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide" data-cursor-text="Click"><img src="assets/images/project-1.jpg" alt=""></div>
-                                <div class="swiper-slide" data-cursor-text="Click"><img src="assets/images/project-2.jpg" alt=""></div>
-                                <div class="swiper-slide" data-cursor-text="Click"><img src="assets/images/project-3.jpg" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
+              <div class="col-lg-8">
+                  <div class="project-single-content">
+                      <div class="project-single-slider">
+                          <div class="swiper project-slider">
+                              <div class="swiper-wrapper" data-cursor-text="Drag">
+                                  @for (img of gallery(); track img.asset._ref) {
+                                    <div class="swiper-slide">
+                                      <div class="slide-image">
+                                        <img [src]="sanityImageUrl(img, 1200)" [alt]="title()">
+                                      </div>
+                                    </div>
+                                  }
+                              </div>
+                          </div>
+                          <div class="swiper project-slider-item">
+                              <div class="swiper-wrapper">
+                                  @for (img of gallery(); track img.asset._ref) {
+                                    <div class="swiper-slide" data-cursor-text="Click">
+                                      <img [src]="sanityImageUrl(img, 1200)" [alt]="title()">
+                                    </div>
+                                  }
+                              </div>
+                          </div>
+                      </div>
 
-                    <!-- Descriere produs -->
-                    <div class="project-meta">
-                        <h3 class="text-anime-style-3">Despre produs</h3>
-                        <p class="wow fadeInUp">Panoul solar monocristalin de 400W reprezintă soluția ideală pentru instalații rezidențiale și comerciale. Construit cu celule de înaltă eficiență, oferă performanțe excepționale chiar și în condiții de lumină redusă.</p>
-                        <ul class="wow fadeInUp" data-wow-delay="0.25s">
-                            <li>Celule monocristaline de ultimă generație</li>
-                            <li>Randament superior în condiții de căldură</li>
-                            <li>Cadru din aluminiu anodizat rezistent la coroziune</li>
-                            <li>Sticlă securizată anti-reflexie 3.2mm</li>
-                        </ul>
-                        <p class="wow fadeInUp" data-wow-delay="0.5s">Proiectat pentru a rezista condițiilor meteo extreme, testat împotriva grindinei, încărcărilor de zăpadă și vântului puternic.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                      <div class="project-meta">
+                          <h3 class="text-anime-style-3">Despre produs</h3>
+                          <p class="wow fadeInUp">{{ aboutDescription() }}</p>
+                          <ul class="wow fadeInUp" data-wow-delay="0.25s">
+                              @for (point of aboutPoints(); track $index) {
+                                <li>{{ point }}</li>
+                              }
+                          </ul>
+                          @if (aboutDescriptionExtra()) {
+                            <p class="wow fadeInUp" data-wow-delay="0.5s">{{ aboutDescriptionExtra() }}</p>
+                          }
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
-<!-- Descriere Produs 2 — structura company-quality (Durability) -->
-<div class="company-quality">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="company-quality-img">
-                    <figure><img src="assets/images/company-quality-img.jpg" alt=""></figure>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="company-quality-content">
-                    <div class="company-quality-title">
-                        <h2 class="text-anime-style-3" data-cursor="-opaque">Durabilitate</h2>
-                    </div>
-                    <div class="company-quality-body">
-                        <p class="wow fadeInUp">Panourile solare sunt fabricate din sticlă securizată, construite să reziste la grindină și condiții meteo extreme.</p>
-                        <p class="wow fadeInUp" data-wow-delay="0.25s">Monitorizarea sistemului permite identificarea și rezolvarea proactivă a oricăror probleme de performanță.</p>
-                    </div>
-                    <div class="company-quality-list wow fadeInUp" data-wow-delay="0.5s">
-                        <ul>
-                            <li>Garanție produs 10 ani</li>
-                            <li>Garanție performanță 25 ani</li>
-                            <li>Certificat IEC 61215 și IEC 61730</li>
-                            <li>Testat la sarcini de vânt 2400 Pa</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+  <div class="company-quality">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6">
+                  <div class="company-quality-img">
+                      <figure><img [src]="durabilityImageUrl()" [alt]="durabilityTitle()"></figure>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="company-quality-content">
+                      <div class="company-quality-title">
+                          <h2 class="text-anime-style-3" data-cursor="-opaque">{{ durabilityTitle() }}</h2>
+                      </div>
+                      <div class="company-quality-body">
+                          <p class="wow fadeInUp">{{ durabilityDescription() }}</p>
+                          @if (durabilityDescriptionExtra()) {
+                            <p class="wow fadeInUp" data-wow-delay="0.25s">{{ durabilityDescriptionExtra() }}</p>
+                          }
+                      </div>
+                      <div class="company-quality-list wow fadeInUp" data-wow-delay="0.5s">
+                          <ul>
+                              @for (point of durabilityPoints(); track $index) {
+                                <li>{{ point }}</li>
+                              }
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+} @else {
+  <div class="container" style="padding: 100px 0; text-align: center;">
+    <h2>Produs negăsit</h2>
+    <a routerLink="/catalog" class="btn-default">înapoi la catalog</a>
+  </div>
+}
 
 <!-- Contact -->
 <app-cta-banner
