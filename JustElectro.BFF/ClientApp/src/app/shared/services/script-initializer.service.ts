@@ -59,6 +59,30 @@ export class ScriptInitializerService {
       }
     }
 
+    // Magnific Popup — galerie imagini
+    if (typeof $ !== 'undefined' && $.fn && $.fn.magnificPopup && $('.gallery-items').length) {
+      $('.gallery-items').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        closeOnContentClick: false,
+        closeBtnInside: false,
+        mainClass: 'mfp-with-zoom',
+        image: {
+          verticalFit: true,
+        },
+        gallery: {
+          enabled: true,
+        },
+        zoom: {
+          enabled: true,
+          duration: 300,
+          opener: function (element: any) {
+            return element.find('img');
+          },
+        },
+      });
+    }
+
     // Isotope — filtrare portofoliu
     if (typeof Isotope !== 'undefined' && document.querySelector('#portofoliu-grid')) {
       const iso = new Isotope('#portofoliu-grid', {
