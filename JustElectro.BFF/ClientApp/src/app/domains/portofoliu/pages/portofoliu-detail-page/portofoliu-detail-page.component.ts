@@ -30,7 +30,8 @@ export class PortofoliuDetailPageComponent implements OnInit {
   private readonly langService = inject(LanguageService);
 
   readonly proiect = signal<PortfolioItemDto | undefined>(undefined);
-  readonly selectedImage = signal<string>('');
+  readonly mainImage = signal<SanityImage | undefined>(undefined);
+  readonly galleryImages = signal<SanityImage[]>([]);
   readonly lang = () => this.langService.currentLang();
 
   ngOnInit(): void {
@@ -38,7 +39,8 @@ export class PortofoliuDetailPageComponent implements OnInit {
       const slug = params.get('slug') ?? '';
       this.cmsApi.getPortfolioItemBySlug(slug).subscribe(item => {
         this.proiect.set(item ?? undefined);
-        this.selectedImage.set(item ? this.getCoverImageUrl(item) : '');
+        this.mainImage.set(item?.coverImage);
+        this.galleryImages.set(item?.gallery ?? []);
       });
       window.scrollTo(0, 0);
     });
@@ -52,27 +54,22 @@ export class PortofoliuDetailPageComponent implements OnInit {
     return item.description[this.lang()] ?? '';
   }
 
-  getCoverImageUrl(item: PortfolioItemDto): string {
-    return sanityImageUrl(item.coverImage, 1200);
-  }
-
   getImageUrl(image: SanityImage, width = 1200): string {
     return sanityImageUrl(image, width);
   }
 
-  getGalleryImages(item: PortfolioItemDto): SanityImage[] {
-    return [item.coverImage, ...(item.gallery ?? [])];
+  getMainImageUrl(width = 1200): string {
+    const img = this.mainImage();
+    return img ? sanityImageUrl(img, width) : '';
   }
 
-  getDisplayImageUrl(item: PortfolioItemDto): string {
-    return this.selectedImage() || this.getCoverImageUrl(item);
-  }
-
-  selectImage(url: string): void {
-    this.selectedImage.set(url);
-  }
-
-  isSelectedImage(url: string): boolean {
-    return this.selectedImage() === url;
+  swapWithMain(index: number): void {
+    const gallery = [...this.galleryImages()];
+    const current = this.mainImage();
+    if (!current || index < 0 || index >= gallery.length) return;
+    const clicked = gallery[index];
+    gallery[index] = current;
+    this.mainImage.set(clicked);
+    this.galleryImages.set(gallery);
   }
 }
